@@ -1,10 +1,10 @@
 /* eslint-disable no-return-assign */
 /* eslint-disable radix */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import ButtonLogout from '../../components/ButtonLogout';
 import LinkAside from '../../components/LinkAside';
-import CartArea from '../../components/CartArea'
+import CartArea from '../../components/CartArea';
 import ButtonDefault from '../../components/ButtonDefault';
 import './hall.scss';
 import Input from '../../components/Input';
@@ -20,170 +20,165 @@ import InputSelect from '../../components/InputSelect';
 import Popup from '../../components/Popup';
 
 export default function Hall() {
-	const [breakfastClass, setBreakfastClass] = useState("")
-	const [allDayClass, setAllDayClass] = useState("selected")
+	const [breakfastClass, setBreakfastClass] = useState('');
+	const [allDayClass, setAllDayClass] = useState('selected');
 
 	const [values, setValues] = useState({
 		first: 'burgers',
 		second: 'sides',
 		third: 'drinks',
-	})
+	});
 
 	const [labels, setLabels] = useState({
 		first: 'burgers',
 		second: 'adicionais',
 		third: 'bebidas',
-	})
+	});
 
-	const [activation1, setActivation1] = useState(true)
-	const [activation2, setActivation2] = useState(false)
-	const [activation3, setActivation3] = useState(false)
+	const [activation1, setActivation1] = useState(true);
+	const [activation2, setActivation2] = useState(false);
+	const [activation3, setActivation3] = useState(false);
 
 	const chooseProduct = (e) => {
-
 		setProductSelected({
 			name: e.target.value,
 			price: e.target.getAttribute('price'),
 			quantity: 1,
 			// flavor:"",
 			// complement:"",
-
-
-		})
-	}
-	const [products, setProducts] = useState(<Burgers onClick={chooseProduct} />)
+		});
+	};
+	const [products, setProducts] = useState(<Burgers onClick={chooseProduct} />);
 
 	const selectBreakfast = () => {
-		setActivation1(true)
-		setActivation2(false)
-		setActivation3(false)
-		setBreakfastClass("selected")
-		setAllDayClass("")
+		setActivation1(true);
+		setActivation2(false);
+		setActivation3(false);
+		setBreakfastClass('selected');
+		setAllDayClass('');
 		setValues({
 			first: 'snacks',
 			second: 'coffes',
 			third: 'juices',
-		})
+		});
 		setLabels({
 			first: 'lanches',
 			second: 'cafés',
 			third: 'sucos',
-		})
-		setProducts(<Snack onClick={chooseProduct} />)
-	}
+		});
+		setProducts(<Snack onClick={chooseProduct} />);
+	};
 
 	const selectAllDay = () => {
-		setActivation1(true)
-		setActivation2(false)
-		setActivation3(false)
-		setAllDayClass("selected")
-		setBreakfastClass("")
+		setActivation1(true);
+		setActivation2(false);
+		setActivation3(false);
+		setAllDayClass('selected');
+		setBreakfastClass('');
 		setValues({
 			first: 'burgers',
 			second: 'sides',
 			third: 'drinks',
-		})
+		});
 		setLabels({
 			first: 'burgers',
 			second: 'adicionais',
 			third: 'bebidas',
-		})
-		setProducts(<Burgers onClick={chooseProduct} />)
-	}
+		});
+		setProducts(<Burgers onClick={chooseProduct} />);
+	};
 
 	const changeProducts = (e) => {
-		const click = e.target.innerText
+		const click = e.target.innerText;
 		switch (click) {
-			case "BURGERS":
-				setActivation1(true)
-				setActivation2(false)
-				setActivation3(false)
-				setProducts(<Burgers onClick={chooseProduct} />)
+			case 'BURGERS':
+				setActivation1(true);
+				setActivation2(false);
+				setActivation3(false);
+				setProducts(<Burgers onClick={chooseProduct} />);
 				break;
-			case "ADICIONAIS":
-				setActivation1(false)
-				setActivation2(true)
-				setActivation3(false)
-				setProducts(<Sides onClick={chooseProduct} />)
+			case 'ADICIONAIS':
+				setActivation1(false);
+				setActivation2(true);
+				setActivation3(false);
+				setProducts(<Sides onClick={chooseProduct} />);
 
-				break
-			case "BEBIDAS":
-				setActivation1(false)
-				setActivation2(false)
-				setActivation3(true)
-				setProducts(<Drinks onClick={chooseProduct} />)
-				break
-			case "LANCHES":
-				setActivation1(true)
-				setActivation2(false)
-				setActivation3(false)
-				setProducts(<Snack onClick={chooseProduct} />)
 				break;
-			case "CAFÉS":
-				setActivation1(false)
-				setActivation2(true)
-				setActivation3(false)
-				setProducts(<Coffee onClick={chooseProduct} />)
-				break
-			case "SUCOS":
-				setActivation1(false)
-				setActivation2(false)
-				setActivation3(true)
-				setProducts(<Juice onClick={chooseProduct} />)
-				break
+			case 'BEBIDAS':
+				setActivation1(false);
+				setActivation2(false);
+				setActivation3(true);
+				setProducts(<Drinks onClick={chooseProduct} />);
+				break;
+			case 'LANCHES':
+				setActivation1(true);
+				setActivation2(false);
+				setActivation3(false);
+				setProducts(<Snack onClick={chooseProduct} />);
+				break;
+			case 'CAFÉS':
+				setActivation1(false);
+				setActivation2(true);
+				setActivation3(false);
+				setProducts(<Coffee onClick={chooseProduct} />);
+				break;
+			case 'SUCOS':
+				setActivation1(false);
+				setActivation2(false);
+				setActivation3(true);
+				setProducts(<Juice onClick={chooseProduct} />);
+				break;
 
 			default:
 		}
-	}
+	};
 
-	const [productSelected, setProductSelected] = useState("")
+	const [productSelected, setProductSelected] = useState('');
 	const [showPopup, setShowPopup] = useState(false);
-	
-	const [cartContent, setCartContent] = useState([])
+
+	const [cartContent, setCartContent] = useState([]);
 
 	const addProduct = () => {
-		if (productSelected !== "") {
-			const newArray = [...cartContent]
-			const productInCart = newArray.find(product => product.name === productSelected.name)
-			const index = newArray.indexOf(productInCart)
-			if (index<0){
-				newArray.push(productSelected)
-				setCartContent(newArray)
-			} else{
-				productInCart.quantity += 1
-				setCartContent(newArray)
-
+		if (productSelected !== '') {
+			const newArray = [...cartContent];
+			const productInCart = newArray.find(
+				(product) => product.name === productSelected.name
+			);
+			const index = newArray.indexOf(productInCart);
+			if (index < 0) {
+				newArray.push(productSelected);
+				setCartContent(newArray);
+			} else {
+				productInCart.quantity += 1;
+				setCartContent(newArray);
 			}
-			setProductSelected("")
-		}else{
+			setProductSelected('');
+		} else {
 			setShowPopup(true);
-
 		}
-	}
-
+	};
 
 	const addUnit = (e) => {
-		const name = e.target.getAttribute("name")
-		const newArray = [...cartContent]
-		const productInCart = newArray.find(product => product.name === name)
-		productInCart.quantity += 1
-		setCartContent(newArray)
-	}
+		const name = e.target.getAttribute('name');
+		const newArray = [...cartContent];
+		const productInCart = newArray.find((product) => product.name === name);
+		productInCart.quantity += 1;
+		setCartContent(newArray);
+	};
 
 	const removeUnit = (e) => {
-		const name = e.target.getAttribute("name")
-		const newArray = [...cartContent]
-		const productInCart = newArray.find(product => product.name === name)
-		productInCart.quantity -= 1
-		const index = newArray.indexOf(productInCart)
-		if (productInCart.quantity < 1){
-			newArray.splice(index,1)
-			setCartContent(newArray)
-		}else{
-			setCartContent(newArray)
+		const name = e.target.getAttribute('name');
+		const newArray = [...cartContent];
+		const productInCart = newArray.find((product) => product.name === name);
+		productInCart.quantity -= 1;
+		const index = newArray.indexOf(productInCart);
+		if (productInCart.quantity < 1) {
+			newArray.splice(index, 1);
+			setCartContent(newArray);
+		} else {
+			setCartContent(newArray);
 		}
-			
-	}
+	};
 
 	// useEffect(()=>{
 	// 	if(cartContent.length!==0){
@@ -195,12 +190,30 @@ export default function Hall() {
 	// 	setTotalPrice(sumPrices)
 	// 	console.log(arrayPrices)
 	// 	}
-	
-
 
 	// }, [cartContent])
+	const [allProducts, setAllProducts] = useState([]);
 
+	useEffect(() => {
+		const apiURL = 'https://lab-api-bq.herokuapp.com';
+		const apiProducts = `${apiURL}/products`;
+		const token = localStorage.getItem('token');
 
+		const getRequestOptions = {
+			method: 'GET',
+			headers: {
+				Authorization: token,
+			},
+		};
+
+		fetch(apiProducts, getRequestOptions)
+			.then((response) => response.json())
+			.then((data) => {
+				setAllProducts(data)
+			});
+	}, []);
+	console.log(allProducts)
+	
 	return (
 		<div className="pages-container">
 			<header className="title-area">
@@ -279,7 +292,7 @@ export default function Hall() {
 						</section>
 					</div>
 				</section>
-				<CartArea content={cartContent} plus={addUnit} minus={removeUnit}/>
+				<CartArea content={cartContent} plus={addUnit} minus={removeUnit} />
 
 				{showPopup ? (
 					<Popup
@@ -290,6 +303,4 @@ export default function Hall() {
 			</main>
 		</div>
 	);
-};
-
-
+}
