@@ -1,112 +1,103 @@
-import React, {useState} from 'react';
+/* eslint-disable react/prop-types */
+/* eslint-disable object-curly-newline */
+import React, {useState, useEffect} from 'react';
 import ListAllOrders from '../ListAllOrders'
 import Header from '../Header'
 import ButtonDefault from '../ButtonDefault';
+import Loader from '../Loader';
 
 
 
-export default function OrdersPanel() {
+export default function OrdersPanel({classBtn}) {
 
-	const handleUpdateOrders = () => {
+	const [loading, setLoading] = useState(false);
+
+
+  const [navClass, setNavClass] = useState({
+    pending:"selected",
+    loading:"",
+    done:"",
+    delivered:"",
+    all:"",
+  })
+
+  const lastStatus =  localStorage.getItem('lastOrderStatus');
+  const [status, setStatus] = useState("pending")
+	const[visibilityBtn, setVisibilityBtn]= useState("btn-invisible")
+
+  useEffect(() => {
+		if(lastStatus){
+			setNavClass({[lastStatus]:"selected"})
+			if (lastStatus==="all"){
+				setStatus(false)
+				setVisibilityBtn("btn-visible")
+			}else{
+				setStatus(lastStatus)
+			}
+		}
+  }, [lastStatus])
+
+
+ 	const handleUpdateOrders = () => {
+		setLoading(true);
 		window.location.reload()
 	}
-
-	const [pendingClass, setPendingClass] = useState("selected")
-	const [loadingClass, setLoadingClass] = useState("")
-	const [doneClass, setDoneClass] = useState("")
-  const [deliveredClass, setDeliveredClass] = useState("")
-	const [allClass, setAllClass] = useState('')
-	const [status, setStatus] = useState('pending')
-
-	const selectPending = () =>{
-		setStatus("pending")
-		setPendingClass("selected")
-		setLoadingClass("")
-		setDoneClass("")
-    setDeliveredClass("")
-		setAllClass("")
 	
+  const navOrders = (chosenStatus) =>{
+		if (chosenStatus==="all"){
+			setStatus(false)
+			setVisibilityBtn("btn-visible")
+			localStorage.setItem('lastOrderStatus', "all");
 
+		}else{
+			setStatus(chosenStatus)
+			localStorage.setItem('lastOrderStatus', chosenStatus);
+	
+		}
+	
 	}
 
-	const selectLoading = () =>{
-		setStatus("loading")
-		setPendingClass("")
-		setLoadingClass("selected")
-		setDoneClass("")
-    setDeliveredClass("")
-		setAllClass("")
-
-	}
-
-
-	const selectDone = () =>{
-		setStatus("done")
-		setPendingClass("")
-		setLoadingClass("")
-		setDoneClass("selected")
-    setDeliveredClass("")
-		setAllClass("")
-	}
-
-  const selectDelivered = () =>{
-		setStatus("delivered")
-		setPendingClass("")
-		setLoadingClass("")
-		setDoneClass("")
-    setDeliveredClass("selected")
-		setAllClass("")
-
-	}
-
-	const selectAll = () =>{
-		setStatus(false)
-		setPendingClass("")
-		setLoadingClass("")
-		setDoneClass("")
-    setDeliveredClass("")
-		setAllClass("selected")
-	}
 
 	return (
 		<div className="pages-container">
-			<Header />
+			<Header classBtn={classBtn}/>
 			<nav>
 				<ul className="menu-types">
-					<li className={pendingClass} onClick={selectPending}>
+					<li className={navClass.pending} onClick={()=>{ handleUpdateOrders(); setNavClass({pending:"selected"}); navOrders("pending")}}>
 						{' '}
 						Em espera{' '}
 					</li>
-					<li className={loadingClass} onClick={selectLoading}>
+					<li className={navClass.loading} onClick={()=>{handleUpdateOrders(); setNavClass({loading:"selected"}); navOrders("loading")}}>
 						{' '}
 						Iniciados{' '}
 					</li>
 
-					<li className={doneClass} onClick={selectDone}>
+					<li className={navClass.done} onClick={()=>{handleUpdateOrders(); setNavClass({done:"selected"}); navOrders("done")}}>
 						{' '}
 						Prontos{' '}
 					</li>
 
-          <li className={deliveredClass} onClick={selectDelivered}>
+          <li className={navClass.delivered} onClick={()=>{handleUpdateOrders(); setNavClass({delivered:"selected"}); navOrders("delivered")}}>
 						{' '}
 						Entregues{' '}
 					</li>
 
-					<li className={allClass} onClick={selectAll}>
+					<li className={navClass.all} onClick={()=>{handleUpdateOrders(); setNavClass({all:"selected"}); navOrders("all")}}>
 						{' '}
-						Todos{' '}
+						Histórico{' '}
 					</li>
 				</ul>
 
 				<div className="order-progress">
-				<ButtonDefault className="btn-update-orders" onClick={() => { handleUpdateOrders() }}>
+				<ButtonDefault className="btn-update-orders" onClick={() => {handleUpdateOrders()}}>
 			 ⏱ Atualizar pedidos
 			</ButtonDefault>
 				</div>
 			</nav>
 
 
-			<ListAllOrders session ={status}/>
+			<ListAllOrders session ={status} orderUpdate = {handleUpdateOrders} className={visibilityBtn}/>
+			{loading ? <Loader /> : false}
 		</div>
 	);
 }

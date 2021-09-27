@@ -3,17 +3,21 @@ import React, { useState, useEffect } from 'react';
 import { role } from '../../utils/auth';
 import ButtonDefault from '../ButtonDefault';
 import Popup from '../Popup';
+import Loader from '../Loader';
 
 import './listAllOrders.scss';
 
-export default function ListAllOrders({session}) {
+export default function ListAllOrders({ session, className }) {
 	const [allOrders, setAllOrders] = useState([]);
 	const [showPopup, setShowPopup] = useState(false);
 	const [popUpText, setPopUpText] = useState("")
+	const [loading, setLoading] = useState(false);
 
 	const apiURL = 'https://lab-api-bq.herokuapp.com';
 	const apiOrders = `${apiURL}/orders/`;
 	const token = localStorage.getItem('token');
+
+	
 
 	useEffect(() => {
 		const getRequestOptions = {
@@ -27,17 +31,28 @@ export default function ListAllOrders({session}) {
 			.then((response) => response.json())
 			.then((data) => {
 				setAllOrders(data);
-				
+
 			});
 	}, [apiOrders, token]);
 
-	const ordersFilteredByStatus = () =>{
+
+
+	// const ordersFilteredByStatus = () => {
+	// 	const arrayOrders = [...allOrders]
+	// 	const ordersFiltered = arrayOrders.filter(order => order.status === session)
+	// 	return ordersFiltered
+	// }
+
+	const [ordersFilteredByStatus, setOrdersFilteredByStatus] = useState([])
+
+	useEffect(() => {
 		const arrayOrders = [...allOrders]
 		const ordersFiltered = arrayOrders.filter(order => order.status === session)
-		return ordersFiltered
-	}
+		setOrdersFilteredByStatus(ordersFiltered)
+	
+	}, [allOrders, session])
 
-	ordersFilteredByStatus()
+
 
 	const orderStatus = (status) => {
 		switch (status) {
@@ -47,10 +62,8 @@ export default function ListAllOrders({session}) {
 			case "loading":
 				return "Iniciado"
 
-
 			case "done":
 				return "Pronto"
-
 
 			case "delivered":
 				return "Entregue"
@@ -68,10 +81,8 @@ export default function ListAllOrders({session}) {
 			case "loading":
 				return "Atualizar pedido - Pronto"
 
-
 			case "done":
 				return "Atualizar pedido - Entregue"
-
 
 			case "delivered":
 				return ""
@@ -99,14 +110,39 @@ export default function ListAllOrders({session}) {
 		return options;
 	};
 
-	const updateOrderStatus = (index, id, status) =>
+	const updateOrderStatus = (index, id, status) => {
+		setLoading(true)
 		fetch(`${apiOrders}${id}`, putRequestOptions(status))
 			.then((response) => response.json())
 			.then(() => {
 				const pendingOrdersList = [...allOrders];
 				pendingOrdersList[index].status = status;
 				setAllOrders(pendingOrdersList);
-			});
+				setTimeout(() => { window.location.reload() }, 2000)
+				 
+			})
+			.then(()=>{
+				setPopUpText("O status do pedido foi atualizado!")
+				setShowPopup(true)
+
+			})
+	}
+
+	// APAGAR PEDIDOS
+	// 	for(const order of allOrders){
+	// 		fetch(`${apiOrders}${order.id}`,
+	// 		{
+	// 			method: 'DELETE',
+	// 			headers: {
+	// 				Authorization: token,
+	// 				'Content-Type': 'application/json',
+	// 				'Access-Control-Allow-Origin': '*',
+	// 				'Access-Control-Allow-Credentials': true,
+	// 				'Access-Control-Allow-Methods': 'GET,OPTIONS,PATCH,DELETE,POST',
+	// 			}
+	// 	})		
+	// }
+
 
 	const statusOnClick = (index, id, status) => {
 		switch (role()) {
@@ -129,8 +165,8 @@ export default function ListAllOrders({session}) {
 				switch (status) {
 					case "done":
 						updateOrderStatus(index, id, 'delivered', allOrders, setAllOrders)
-
 						break
+
 					default:
 						setPopUpText("Usuário não autorizado a alterar este status.")
 						setShowPopup(true)
@@ -140,13 +176,27 @@ export default function ListAllOrders({session}) {
 				setPopUpText("A operação falhou.")
 				setShowPopup(true)
 		}
+
+
+	}
+
+	const todayOrders=()=>{
+		const newArray = [...allOrders]
+		const today = new Date().toLocaleDateString('pt-br')
+		const todayOrdersArray = newArray.filter(order=> new Date(order.createdAt).toLocaleDateString('pt-br') === today )
+		setAllOrders(todayOrdersArray)
+
 	}
 
 
 	return (
+		<>
+		
+		<ButtonDefault className={`btn-default btn-list-orders ${className}`} onClick={todayOrders}>Pedidos do dia</ButtonDefault>
+			<ButtonDefault className={`btn-default btn-list-orders ${className}`} onClick={()=>window.location.reload()}>Todos</ButtonDefault>
 		<section className="cards-orders-container">
 			{session
-				? ordersFilteredByStatus().map((order, index) => (
+				? ordersFilteredByStatus.map((order, index) => (
 						<div className="card-order-template" key={order.id}>
 							<div className="card-order-info">
 								<div className="card-order-table">
@@ -170,13 +220,17 @@ export default function ListAllOrders({session}) {
 									<p>
 										Cliente: <span>{order.client_name}</span>
 									</p>
+									
 									<p>
 										Data e Hora:{' '}
 										<span>{`${new Date(order.createdAt).toLocaleDateString(
-											'pt-br'
-										)} - ${new Date(order.createdAt).getHours()}:${new Date(
-											order.createdAt
-										).getMinutes()}h`}</span>
+											'pt-br', 
+										)} - ${new Date(order.createdAt).toLocaleTimeString(
+											'pt-br', {
+												hour: '2-digit',
+												minute: '2-digit',
+											}
+										)}h`}</span>
 									</p>
 
 									<p>
@@ -194,9 +248,12 @@ export default function ListAllOrders({session}) {
 															1000 /
 															60
 												  )}min`
-												: '0min'}
+												: "Não finalizado"}
 										</span>
 									</p>
+
+
+									
 								</div>
 								<p className="products-title uppercase">Produtos</p>
 
@@ -255,9 +312,32 @@ export default function ListAllOrders({session}) {
 										Data e Hora:{' '}
 										<span>{`${new Date(order.createdAt).toLocaleDateString(
 											'pt-br', 
-										)} - ${new Date(order.createdAt).getHours()}:${new Date(
-											order.createdAt
-										).getMinutes()}h`}</span>
+										)} - ${new Date(order.createdAt).toLocaleTimeString(
+											'pt-br', {
+												hour: '2-digit',
+												minute: '2-digit',
+											}
+										)}h`}</span>
+									</p>
+
+
+									<p>
+										Tempo de preparação:{' '}
+										<span>
+											{Math.floor(
+												(Math.abs(new Date(order.processedAt)) -
+													new Date(order.createdAt)) /
+													1000 /
+													60
+											) > 0
+												? `${Math.floor(
+														(Math.abs(new Date(order.processedAt)) -
+															new Date(order.createdAt)) /
+															1000 /
+															60
+												  )}min`
+												: "Não finalizado"}
+										</span>
 									</p>
 								</div>
 								<p className="products-title uppercase">Produtos</p>
@@ -296,6 +376,9 @@ export default function ListAllOrders({session}) {
 					onClose={() => setShowPopup(false)}
 				></Popup>
 			) : null}
+
+			{loading ? <Loader /> : false}
 		</section>
+		</>
 	);
 }
