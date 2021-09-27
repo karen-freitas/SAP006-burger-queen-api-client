@@ -1,70 +1,155 @@
-# Getting Started with Create React App
+# Divino Burger :hamburger:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Projeto 4 - Burger Queen desenvolvido no bootcamp de Front-End da SAP006 Laboratória :yellow_heart:
 
-## Available Scripts
+## Índice
 
-In the project directory, you can run:
+1. [Definição do Produto](#dart-definição-do-produto)
+2. [Histórias de Usuários](#pencil2-histórias-de-usuários)
+3. [Protótipos](#art-protótipos)
+4. [Como usar?](#gear-como-usar)
+5. [Testes de Usabilidade](#busts_in_silhouette-testes-de-usabilidade)
+6. [Tecnologias utilizadas](#robot-tecnologias-utilizadas)
+7. [Estrutura dos Principais Arquivos](#file_folder-estrutura-dos-principais-arquivos)
+8. [Resultados](#%EF%B8%8F-resultados)
+9. [Sobre as desenvolvedoras](#woman_technologist-sobre-as-desenvolvedoras)
 
-### `npm start`
+---
+## :dart: Definição do Produto
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+O [Divino Burger](https://divino-burger.vercel.app/) é uma rede social para todos os apaixonados por séries e foi desenvolvida para que eles possam compartilhar resenhas/reviews dos seriados assistidos. O seu principal objetivo é promover a interação e comunicação entre usuários que possuem esse interesse em comum. Com essa troca de experiências, o SeriesDay busca ajudá-los a escolher o que assistir entre as milhares de opções dos catálogos dos serviços de streaming. 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+O layout do site baseia-se nos acessórios cinematográficos, o que remete à produção audiovisual das séries. A intenção é apresentar para o público uma aplicação temática, intuitiva e aconchegante que propicie uma ótima experiência de usuário. Para isso, nos pontos de interação do usuário, foram utilizadas cores vivas que mudam de acordo com o seu manuseio, pop-ups de informações e de respostas para guiá-lo na usabilidade do produto.
 
-### `npm test`
+O seu design é mobile first também responsivo para tablet e desktop, o que proporciona a versatilidade e adaptabilidade desejada pelos usuários. A sua idealização foi feita a partir de protótipos de baixa e de alta fidelidade que nortearam a construção do site de acordo com as necessidades dos clientes. Nele, é possível criar uma conta de acesso, logar-se com ela, criar, editar, deletar e dar likes em publicações. Além disso, existe uma área editável de perfil, onde o cliente pode alterar sua imagem de exibição.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
+## :pencil2: Histórias de Usuários
+![img](./src/assets/historia1.png)
+![img](./src/assets/historia2.png)
+![img](./src/assets/historia3.png)
+![img](./src/assets/historia4.png)
 
-### `npm run build`
+---
+## :art: Protótipos 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* ####  Mobile
+![img](./src/assets/prototipo-mobile.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* #### Desktop
+![img](./src/assets/prototipo-desktop.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
+## :gear: Como usar?
 
-### `npm run eject`
+- A tela inicial da aplicação traz **Página de Login** que apresenta ao usário as opções de fazer o login com email e senha já cadastrados, entrar na rede social por meio do login com Conta Google ou prosseguir para a Página de Cadastro;
+- Na **Página de Cadastro**, o cliente pode cadastrar-se inserindo seus dados de Nome, E-mail e Senha;
+- Ao realizar qualquer uma dessas três formas de acesso à rede social, o cliente será encaminhado para a **Página de Timeline**, onde ocorre toda a interação entre os usuários, como publicar, curtir, editar e deletar postagens. Nela, ainda existe uma área de perfil, onde são exibidos o nome, o email e a foto (alterável) do usuário;
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+---
+## :busts_in_silhouette: Testes de Usabilidade
+Durante o desenvolvimento do produto, foi realizado teste de usabilidade com diferentes indivíduos no intuito de analisar a experiência do usuário com a interface do site. Com base nos resultados desse teste, foram detectados os seguintes pontos de ajustes:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Mais respostas visuais aos erros de login e cadastro no site
+- Foto de perfil distorcida devido ao tamanho da imagem
+- Cores que combinam melhor na Página de Timeline
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Para a resolução dessas questões, foram implemantadas mais respostas visuais, assim como modais para comunicar ao usuário sobre determinadas interações com o site. Além disso, no momento na alteração da foto de perfil, foi adicionada a informação sobre o tamanho ideal da foto para que a imagem encaixe-se perfeitamente. Já no design, foram feitas mudanças nas cores da Página de Timeline, de acordo com o sugerido no teste de usabilidade.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+---
+## :robot: Tecnologias utilizadas
 
-## Learn More
+| Ferramenta | Descrição |
+| --- | --- |
+| `React` | Uma biblioteca JavaScript para criar interfaces de usuário |
+| `HTML 5` | Linguagem de marcação |
+| `SCSS/SASS` | Linguagem de estilização |
+| `JavaScript` |  Linguagem de programação interpretada estruturada |
+| `Jest` | Framework de teste em JavaScript |
+| `Node.js` | Software de execução de códigos JavaScript |
+| `Git e GitHub` | Sistemas de controle de versões distribuídos |
+| `Figma` | Editor gráfico de vetor e prototipagem de projetos |
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## :file_folder: Estrutura dos Principais Arquivos
+```
+.
+├── 📁public
+|
+├── 📁src
+|   ├── 📁components
+|   |   ├── 📁All-day
+|   |   ├── 📁Breakfast
+|   |   ├── 📁ButtonDefault
+|   |   ├── 📁ButtonLogout
+|   |   ├── 📁ButtonRadio
+|   |   ├── 📁ButtonRadioRegister
+|   |   ├── 📁CarArea
+|   |   ├── 📁CartItem
+|   |   ├── 📁DateTime
+|   |   ├── 📁ErrorMessage
+|   |   ├── 📁Header
+|   |   ├── 📁Input
+|   |   ├── 📁LinkAside
+|   |   ├── 📁ListAllOrders
+|   |   ├── 📁Loader
+|   |   ├── 📁NotFound
+|   |   ├── 📁OrdersPanel
+|   |   ├── 📁Popup
+|   |   ├── 📁PopupCancel
+|   |   └── 📁ProductArea
+|   |
+|   ├── 📁img
+|   |
+|   ├── 📁pages
+|   |   ├── 📁hall
+|   |   ├── 📁HallOrders
+|   |   ├── 📁Kitchen
+|   |   ├── 📁Login
+|   |   └── 📁Register
+|   |
+|   ├── 📁services
+|   |   
+|   ├── 📁utils
+|   |
+|   ├── 📄global.scss
+|   ├── 📄index.js
+|   └── 📄routes.js
+|   
+├── 📄README.md
+└── 📄package.json
 
-### Code Splitting
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## ✔️ Resultados
 
-### Analyzing the Bundle Size
+* ####  Mobile (375px)
+![img](./src/assets/mobile-login.png)
+![img](./src/assets/mobile-register.png)
+![img](./src/assets/mobile-timeline.png)
+![img](./src/assets/mobile-timeline-perfil.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+* #### Tablet (768px)
+![img](./src/assets/tablet-login.png)
+![img](./src/assets/tablet-register.png)
+![img](./src/assets/tablet-timeline.png)
+![img](./src/assets/tablet-timeline-perfil.png)
 
-### Making a Progressive Web App
+* #### Desktop (1440px)
+![img](./src/assets/desktop-login.png)
+![img](./src/assets/desktop-register.png)
+![img](./src/assets/desktop-timeline.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
+## :woman_technologist: Sobre as desenvolvedoras
 
-### Advanced Configuration
+### Karen Freitas
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- [LinkedIn](https://www.linkedin.com/in/karen-freitas/)
+- E-mail: karenfcorrea@gmail.com
+### Patrícia Barnabé
 
-### Deployment
+- [LinkedIn](https://www.linkedin.com/in/patriciabarnabe)
+- E-mail: patbarnabe5@gmail.com
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
