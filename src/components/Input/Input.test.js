@@ -1,11 +1,9 @@
 import React from 'react';
-import { render, screen, cleanup } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import Input from './index'
 
-afterEach(cleanup)
-
 describe('Testes para componente de Input', () => {
-    it('Deve renderizar um input', () => {
+    it('Deve renderizar um componente input', () => {
         render(<Input/>);
     });
 

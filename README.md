@@ -17,23 +17,65 @@
 ---
 ## :dart: Definição do Produto
 
-O [Divino Burger](https://divino-burger.vercel.app/) é uma rede social para todos os apaixonados por séries e foi desenvolvida para que eles possam compartilhar resenhas/reviews dos seriados assistidos. O seu principal objetivo é promover a interação e comunicação entre usuários que possuem esse interesse em comum. Com essa troca de experiências, o SeriesDay busca ajudá-los a escolher o que assistir entre as milhares de opções dos catálogos dos serviços de streaming. 
+Somos o [Divino Burger](https://divino-burger.vercel.app/), um fast food 24hrs.A nossa proposta de serviço 24 horas foi muito bem recebida e, para continuar a crescer, precisamos de um sistema que nos ajude a receber pedidos de nossos clientes.
 
-O layout do site baseia-se nos acessórios cinematográficos, o que remete à produção audiovisual das séries. A intenção é apresentar para o público uma aplicação temática, intuitiva e aconchegante que propicie uma ótima experiência de usuário. Para isso, nos pontos de interação do usuário, foram utilizadas cores vivas que mudam de acordo com o seu manuseio, pop-ups de informações e de respostas para guiá-lo na usabilidade do produto.
+Nós temos 2 menus. Um muito simples para o café da manhã:
 
-O seu design é mobile first também responsivo para tablet e desktop, o que proporciona a versatilidade e adaptabilidade desejada pelos usuários. A sua idealização foi feita a partir de protótipos de baixa e de alta fidelidade que nortearam a construção do site de acordo com as necessidades dos clientes. Nele, é possível criar uma conta de acesso, logar-se com ela, criar, editar, deletar e dar likes em publicações. Além disso, existe uma área editável de perfil, onde o cliente pode alterar sua imagem de exibição.
+| Ítem                           | Preço R$ |
+| ------------------------------ | -------- |
+| Café americano                 | 5        |
+| Café com leite                 | 7        |
+| Sanduíche de presunto e queijo | 10       |
+| Suco de fruta natural          | 7        |
+
+E outro menu para o resto do dia:
+
+| Ítem                     | Preço  |
+| ------------------------ | ------ |
+| **Hambúrgueres**         | **R$** |
+| Hambúrguer simples       | 10     |
+| Hambúrguer duplo         | 15     |
+| **Acompanhamentos**      | **R$** |
+| Batata frita             | 5      |
+| Anéis de cebola          | 5      |
+| **Bebidas**              | **R$** |
+| Água 500ml               | 5      |
+| Água 750ml               | 7      |
+| Bebida gaseificada 500ml | 7      |
+| Bebida gaseificada 750ml | 10     |
+
+**Importante:** Os clientes podem escolher entre hambúrgueres de carne bovina,
+frango ou vegetariano. Além disso, por um adicional de R\$ 1,00 , eles podem
+adicionar queijo **ou** ovo.
+
+Nossos clientes são bastante indecisos, por isso é muito comum que eles mudem o
+seu pedido várias vezes antes de finalizar.
+
+A interface deve mostrar os dois menus (café da manhã e restante do dia), cada
+um com todos os seus _produtos_. O usuário deve poder escolher que _produtos_
+adicionar e a interface deve mostrar o _resumo do pedido_ com o custo total.
+
+Além disso a cliente nos deu um [link da documentação](https://lab-api-bq.herokuapp.com/api-docs/)
+que especifica o comportamento esperado da API que iremos expor por HTTP.
+Lá podemos encontrar todos os detalhes dos _endpoints_, como por exemplo
+que parâmetros esperam, o que devem responder, etc.
+
+O objetivo principal é aprender a construir uma _interface web_ usando o
+_framework_ escolhido (React). Esse framework front-end ataca
+o seguinte problema: **como manter a interface e estado sincronizados**.
+Portanto, esta experiência espera familiarizá-la com o conceito de _estado da
+tela_, e como cada mudança no estado vai refletir na interface (por exemplo,
+toda vez que adicionamos um _produto_ para um _pedido_, a interface deve
+atualizar a lista de pedidos e o total).
 
 ---
 ## :pencil2: Histórias de Usuários
-![img](./src/assets/historia1.png)
-![img](./src/assets/historia2.png)
-![img](./src/assets/historia3.png)
-![img](./src/assets/historia4.png)
+![img](./src/img/historias-usuarios.png)
 
 ---
 ## :art: Protótipos 
 
-* ####  Mobile
+* ####  Tablet
 ![img](./src/assets/prototipo-mobile.png)
 
 * #### Desktop
@@ -42,19 +84,21 @@ O seu design é mobile first também responsivo para tablet e desktop, o que pro
 ---
 ## :gear: Como usar?
 
-- A tela inicial da aplicação traz **Página de Login** que apresenta ao usário as opções de fazer o login com email e senha já cadastrados, entrar na rede social por meio do login com Conta Google ou prosseguir para a Página de Cadastro;
-- Na **Página de Cadastro**, o cliente pode cadastrar-se inserindo seus dados de Nome, E-mail e Senha;
-- Ao realizar qualquer uma dessas três formas de acesso à rede social, o cliente será encaminhado para a **Página de Timeline**, onde ocorre toda a interação entre os usuários, como publicar, curtir, editar e deletar postagens. Nela, ainda existe uma área de perfil, onde são exibidos o nome, o email e a foto (alterável) do usuário;
+- A tela inicial da aplicação traz a **Página de Login** que apresenta ao usário as opções de fazer o login com email e senha já cadastrados e entrar na plataforma do Divino Burger ou prosseguir para a Página de Cadastro;
+- Na **Página de Cadastro**, o funcionário pode cadastrar-se inserindo seus dados de Nome, E-mail, Senha e Setor de Trabalho;
+- Ao realizar qualquer uma dessas formas de acesso, o usuário será encaminhado para o seu respectivo ambiente:
+    -> **Salão**: para os garçons/garçonetes, onde ocorrerá a anotação e encaminhamento dos pedidos para a cozinha;
+    -> **Cozinha**: para os cozinheiros que receberão a demanda dos pedidos realizados.
 
 ---
 ## :busts_in_silhouette: Testes de Usabilidade
-Durante o desenvolvimento do produto, foi realizado teste de usabilidade com diferentes indivíduos no intuito de analisar a experiência do usuário com a interface do site. Com base nos resultados desse teste, foram detectados os seguintes pontos de ajustes:
+Durante o desenvolvimento do produto, foram realizado teste de usabilidade com diferentes indivíduos no intuito de analisar a experiência do usuário com a interface da aplicação. Com base nos resultados desse teste, foram detectados os seguintes pontos de ajustes:
 
-- Mais respostas visuais aos erros de login e cadastro no site
-- Foto de perfil distorcida devido ao tamanho da imagem
-- Cores que combinam melhor na Página de Timeline
+- ...
+- ...
+- ...
 
-Para a resolução dessas questões, foram implemantadas mais respostas visuais, assim como modais para comunicar ao usuário sobre determinadas interações com o site. Além disso, no momento na alteração da foto de perfil, foi adicionada a informação sobre o tamanho ideal da foto para que a imagem encaixe-se perfeitamente. Já no design, foram feitas mudanças nas cores da Página de Timeline, de acordo com o sugerido no teste de usabilidade.
+Para a resolução dessas questões, foram implemantadas...
 
 ---
 ## :robot: Tecnologias utilizadas
@@ -124,19 +168,13 @@ Para a resolução dessas questões, foram implemantadas mais respostas visuais,
 
 ## ✔️ Resultados
 
-* ####  Mobile (375px)
-![img](./src/assets/mobile-login.png)
-![img](./src/assets/mobile-register.png)
-![img](./src/assets/mobile-timeline.png)
-![img](./src/assets/mobile-timeline-perfil.png)
-
-* #### Tablet (768px)
+* #### Tablet
 ![img](./src/assets/tablet-login.png)
 ![img](./src/assets/tablet-register.png)
 ![img](./src/assets/tablet-timeline.png)
 ![img](./src/assets/tablet-timeline-perfil.png)
 
-* #### Desktop (1440px)
+* #### Desktop
 ![img](./src/assets/desktop-login.png)
 ![img](./src/assets/desktop-register.png)
 ![img](./src/assets/desktop-timeline.png)
