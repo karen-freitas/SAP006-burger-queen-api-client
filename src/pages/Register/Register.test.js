@@ -3,8 +3,8 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import Register from './index';
 import ButtonDefault from "../../components/ButtonDefault"
 
-describe('Testes para a página de Cadastro', () => {
-	it('Deve renderizar imagens e textos', () => {
+describe('Tests for Register page', () => {
+	it('should render images and texts', () => {
 		render(<Register/>);
 
         const text = screen.getByText('Cadastro');
@@ -14,14 +14,14 @@ describe('Testes para a página de Cadastro', () => {
         expect(img).toBeInTheDocument();
     });
 
-    it('Deve renderizar um botão com o texto fornecido', () => {
+    it('should render a button with the text provided', () => {
         const texto = "Nome botão";
         render(<ButtonDefault>{texto}</ButtonDefault>);
         const btn = screen.getByText(texto)
         expect(btn).toBeInTheDocument();
       });
     
-      it('Deve disparar uma função quando clicado', () => {
+      it('should call a function when clicked', () => {
         const onClick = jest.fn()
         render(<ButtonDefault onClick={onClick}/>)
         const btn = screen.getByRole('button')
