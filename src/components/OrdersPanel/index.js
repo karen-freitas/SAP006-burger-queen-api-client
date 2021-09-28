@@ -7,11 +7,10 @@ import ButtonDefault from '../ButtonDefault';
 import Loader from '../Loader';
 
 
-
 export default function OrdersPanel({classBtn}) {
-
+	
 	const [loading, setLoading] = useState(false);
-
+	
 
   const [navClass, setNavClass] = useState({
     pending:"selected",
@@ -54,9 +53,7 @@ export default function OrdersPanel({classBtn}) {
 			localStorage.setItem('lastOrderStatus', chosenStatus);
 	
 		}
-	
 	}
-
 
 	return (
 		<div className="pages-container">
