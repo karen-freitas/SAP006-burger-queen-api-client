@@ -4,12 +4,50 @@ import React, {useState, useEffect} from 'react';
 import ListAllOrders from '../ListAllOrders'
 import Header from '../Header'
 import ButtonDefault from '../ButtonDefault';
-import Loader from '../Loader';
 
 
 export default function OrdersPanel({classBtn}) {
 	
-	const [loading, setLoading] = useState(false);
+	const [allOrders, setAllOrders] = useState([]);
+
+
+	const apiURL = 'https://lab-api-bq.herokuapp.com';
+	const apiOrders = `${apiURL}/orders/`;
+	const token = localStorage.getItem('token');
+
+	useEffect(() => {
+		const getRequestOptions = {
+			method: 'GET',
+			headers: {
+				Authorization: token,
+			},
+		};
+
+		fetch(apiOrders, getRequestOptions)
+			.then((response) => response.json())
+			.then((data) => {
+				setAllOrders(data);
+
+			});
+	}, [apiOrders, token]);
+
+	const updateOrders = () =>{
+		const getRequestOptions = {
+			method: 'GET',
+			headers: {
+				Authorization: token,
+			},
+		};
+
+		fetch(apiOrders, getRequestOptions)
+			.then((response) => response.json())
+			.then((data) => {
+				setAllOrders(data);
+
+			});
+	}
+
+	setTimeout(updateOrders,60000)
 	
 
   const [navClass, setNavClass] = useState({
@@ -37,10 +75,6 @@ export default function OrdersPanel({classBtn}) {
   }, [lastStatus])
 
 
- 	const handleUpdateOrders = () => {
-		setLoading(true);
-		window.location.reload()
-	}
 	
   const navOrders = (chosenStatus) =>{
 		if (chosenStatus==="all"){
@@ -60,41 +94,41 @@ export default function OrdersPanel({classBtn}) {
 			<Header classBtn={classBtn}/>
 			<nav>
 				<ul className="menu-types">
-					<li className={navClass.pending} onClick={()=>{ handleUpdateOrders(); setNavClass({pending:"selected"}); navOrders("pending")}}>
+					<li className={navClass.pending} onClick={()=>{ updateOrders(); setNavClass({pending:"selected"}); navOrders("pending")}}>
 						{' '}
 						Em espera{' '}
 					</li>
-					<li className={navClass.loading} onClick={()=>{handleUpdateOrders(); setNavClass({loading:"selected"}); navOrders("loading")}}>
+					<li className={navClass.loading} onClick={()=>{updateOrders(); setNavClass({loading:"selected"}); navOrders("loading")}}>
 						{' '}
 						Iniciados{' '}
 					</li>
 
-					<li className={navClass.done} onClick={()=>{handleUpdateOrders(); setNavClass({done:"selected"}); navOrders("done")}}>
+					<li className={navClass.done} onClick={()=>{updateOrders(); setNavClass({done:"selected"}); navOrders("done")}}>
 						{' '}
 						Prontos{' '}
 					</li>
 
-          <li className={navClass.delivered} onClick={()=>{handleUpdateOrders(); setNavClass({delivered:"selected"}); navOrders("delivered")}}>
+          <li className={navClass.delivered} onClick={()=>{updateOrders(); setNavClass({delivered:"selected"}); navOrders("delivered")}}>
 						{' '}
 						Entregues{' '}
 					</li>
 
-					<li className={navClass.all} onClick={()=>{handleUpdateOrders(); setNavClass({all:"selected"}); navOrders("all")}}>
+					<li className={navClass.all} onClick={()=>{updateOrders(); setNavClass({all:"selected"}); navOrders("all")}}>
 						{' '}
 						Histórico{' '}
 					</li>
 				</ul>
 
 				<div className="order-progress">
-				<ButtonDefault className="btn-update-orders" onClick={() => {handleUpdateOrders()}}>
+				<ButtonDefault className="btn-update-orders" onClick={() => {updateOrders()}}>
 			 ⏱ Atualizar pedidos
 			</ButtonDefault>
 				</div>
 			</nav>
 
 
-			<ListAllOrders session ={status} orderUpdate = {handleUpdateOrders} className={visibilityBtn}/>
-			{loading ? <Loader /> : false}
+			<ListAllOrders session ={status} updateOrders= {updateOrders} className={visibilityBtn} orders={allOrders} />
+			
 		</div>
 	);
 }

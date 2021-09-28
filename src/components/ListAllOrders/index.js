@@ -3,15 +3,16 @@ import React, { useState, useEffect } from 'react';
 import { role } from '../../utils/auth';
 import ButtonDefault from '../ButtonDefault';
 import Popup from '../Popup';
-import Loader from '../Loader';
 
 import './listAllOrders.scss';
 
-export default function ListAllOrders({ session, className }) {
+export default function ListAllOrders({
+ session, className, orders , updateOrders
+}) {
 	const [allOrders, setAllOrders] = useState([]);
 	const [showPopup, setShowPopup] = useState(false);
 	const [popUpText, setPopUpText] = useState("")
-	const [loading, setLoading] = useState(false);
+	
 
 	const apiURL = 'https://lab-api-bq.herokuapp.com';
 	const apiOrders = `${apiURL}/orders/`;
@@ -19,20 +20,21 @@ export default function ListAllOrders({ session, className }) {
 
 
 	useEffect(() => {
-		const getRequestOptions = {
-			method: 'GET',
-			headers: {
-				Authorization: token,
-			},
-		};
+		// const getRequestOptions = {
+		// 	method: 'GET',
+		// 	headers: {
+		// 		Authorization: token,
+		// 	},
+		// };
 
-		fetch(apiOrders, getRequestOptions)
-			.then((response) => response.json())
-			.then((data) => {
-				setAllOrders(data);
+		// fetch(apiOrders, getRequestOptions)
+		// 	.then((response) => response.json())
+		// 	.then((data) => {
+		// 		setAllOrders(data);
 
-			});
-	}, [apiOrders, token]);
+		// 	});
+		setAllOrders(orders)
+	}, [orders]);
 
 
 	const [ordersFilteredByStatus, setOrdersFilteredByStatus] = useState([])
@@ -103,19 +105,22 @@ export default function ListAllOrders({ session, className }) {
 	};
 
 	const updateOrderStatus = (index, id, status) => {
-		setLoading(true)
+
 		fetch(`${apiOrders}${id}`, putRequestOptions(status))
 			.then((response) => response.json())
 			.then(() => {
 				const pendingOrdersList = [...allOrders];
 				pendingOrdersList[index].status = status;
 				setAllOrders(pendingOrdersList);
-				setTimeout(() => { window.location.reload() }, 2000)
-				 
+			
 			})
 			.then(()=>{
 				setPopUpText("O status do pedido foi atualizado!")
 				setShowPopup(true)
+				updateOrders()
+				setTimeout(()=>setShowPopup(false),2000)
+				// setPopUpText("O status do pedido foi atualizado!")
+				// setShowPopup(true)
 
 			})
 	}
@@ -185,7 +190,7 @@ export default function ListAllOrders({ session, className }) {
 		<>
 		
 		<ButtonDefault className={`btn-default btn-list-orders ${className}`} onClick={todayOrders}>Pedidos do dia</ButtonDefault>
-			<ButtonDefault className={`btn-default btn-list-orders ${className}`} onClick={()=>window.location.reload()}>Todos</ButtonDefault>
+			<ButtonDefault className={`btn-default btn-list-orders ${className}`} onClick={()=>updateOrders()}>Todos</ButtonDefault>
 		<section className="cards-orders-container">
 			{session
 				? ordersFilteredByStatus.map((order, index) => (
@@ -200,7 +205,7 @@ export default function ListAllOrders({ session, className }) {
 
 								<ButtonDefault
 									className={`btn-default btn-${order.status} btn-status`}
-									onClick={() => statusOnClick(index, order.id, order.status)}
+									onClick={() => {statusOnClick(index, order.id, order.status);updateOrders()}}
 								>
 									{buttonText(order.status)}
 								</ButtonDefault>
@@ -369,7 +374,7 @@ export default function ListAllOrders({ session, className }) {
 				></Popup>
 			) : null}
 
-			{loading ? <Loader /> : false}
+	
 		</section>
 		</>
 	);
