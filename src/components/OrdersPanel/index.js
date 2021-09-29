@@ -47,8 +47,7 @@ export default function OrdersPanel({classBtn}) {
 			});
 	}
 
-	setTimeout(updateOrders,60000)
-	
+	setTimeout(updateOrders,180000)
 
   const [navClass, setNavClass] = useState({
     pending:"selected",
@@ -74,8 +73,6 @@ export default function OrdersPanel({classBtn}) {
 		}
   }, [lastStatus])
 
-
-	
   const navOrders = (chosenStatus) =>{
 		if (chosenStatus==="all"){
 			setStatus(false)

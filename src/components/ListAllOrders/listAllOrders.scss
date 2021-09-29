@@ -154,6 +154,10 @@
 	margin-right:1rem;
 	margin-top:1rem;
 
+	&:focus{
+		background-color:var(--red);
+	}
+
 }
 
 .btn-visible{
