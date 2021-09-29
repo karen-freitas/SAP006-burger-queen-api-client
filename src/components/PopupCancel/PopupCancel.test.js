@@ -4,8 +4,8 @@ import PopupCancel from './index'
 import ButtonDefault from "../ButtonDefault/index"
 
 
-describe('Tests for ButtonFefault component', () => {
-  it('Deve renderizar um popup com texto e função determinadas', () => {
+describe('Tests for PopupCancel component', () => {
+  it('should render a popup with the text and functions', () => {
     const popUpText = "Texto do popup";
     const onClose = jest.fn
     const onCancel = jest.fn
@@ -14,14 +14,14 @@ describe('Tests for ButtonFefault component', () => {
     expect(texto).toBeInTheDocument();
   });
 
-  it('Deve renderizar um botão com o texto fornecido', () => {
+  it('should render a button with the text provided', () => {
     const texto = "Texto do botão";
     render(<ButtonDefault>{texto}</ButtonDefault>);
     const btn = screen.getByText(texto)
     expect(btn).toBeInTheDocument();
   });
 
-  it('Deve disparar uma função quando clicado', () => {
+  it('should call a function when clicked', () => {
     const onClick = jest.fn()
     render(<ButtonDefault onClick={onClick}/>)
     const btn = screen.getByRole('button')

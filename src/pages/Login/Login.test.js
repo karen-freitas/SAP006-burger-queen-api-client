@@ -4,8 +4,8 @@ import Login from './index';
 import ButtonDefault from "../../components/ButtonDefault"
 
 
-describe('Testes para a página de Login', () => {
-	it('Deve renderizar botões, imagens e textos', () => {
+describe('Tests for Login page', () => {
+	it('should render buttons, images and texts', () => {
 		render(<Login/>);
 
         const button = screen.getByRole('button');
@@ -17,14 +17,14 @@ describe('Testes para a página de Login', () => {
         expect(img).toBeInTheDocument();
     });
 
-    it('Deve renderizar um botão com o texto fornecido', () => {
+    it('should render a button with the text provided', () => {
         const texto = "Nome botão";
         render(<ButtonDefault>{texto}</ButtonDefault>);
         const btn = screen.getByText(texto)
         expect(btn).toBeInTheDocument();
       });
     
-      it('Deve disparar uma função quando clicado', () => {
+      it('should call a function when clicked', () => {
         const onClick = jest.fn()
         render(<ButtonDefault onClick={onClick}/>)
         const btn = screen.getByRole('button')

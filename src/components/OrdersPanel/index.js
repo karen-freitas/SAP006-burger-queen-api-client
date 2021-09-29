@@ -26,7 +26,8 @@ export default function OrdersPanel({classBtn}) {
 		fetch(apiOrders, getRequestOptions)
 			.then((response) => response.json())
 			.then((data) => {
-				setAllOrders(data);
+				const sortById = data.sort((itemA, itemB) => itemA.id - itemB.id);
+				setAllOrders(sortById);
 
 			});
 	}, [apiOrders, token]);
@@ -42,7 +43,8 @@ export default function OrdersPanel({classBtn}) {
 		fetch(apiOrders, getRequestOptions)
 			.then((response) => response.json())
 			.then((data) => {
-				setAllOrders(data);
+				const sortById = data.sort((itemA, itemB) => itemA.id - itemB.id);
+				setAllOrders(sortById);
 
 			});
 	}
