@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable object-curly-newline */
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import ListAllOrders from '../ListAllOrders'
 import Header from '../Header'
 import ButtonDefault from '../ButtonDefault';
@@ -15,39 +15,27 @@ export default function OrdersPanel({classBtn}) {
 	const apiOrders = `${apiURL}/orders/`;
 	const token = localStorage.getItem('token');
 
+	const updateOrders = useCallback(() =>{
+		const getRequestOptions = {
+			method: 'GET',
+			headers: {
+				Authorization: token,
+			},
+		};
+
+		fetch(apiOrders, getRequestOptions)
+			.then((response) => response.json())
+			.then((data) => {
+				const sortById = data.sort((itemA, itemB) => itemA.id - itemB.id);
+				setAllOrders(sortById);
+
+			});
+	}, [apiOrders, token])
+
 	useEffect(() => {
-		const getRequestOptions = {
-			method: 'GET',
-			headers: {
-				Authorization: token,
-			},
-		};
+		updateOrders();
+	}, [updateOrders]);
 
-		fetch(apiOrders, getRequestOptions)
-			.then((response) => response.json())
-			.then((data) => {
-				const sortById = data.sort((itemA, itemB) => itemA.id - itemB.id);
-				setAllOrders(sortById);
-
-			});
-	}, [apiOrders, token]);
-
-	const updateOrders = () =>{
-		const getRequestOptions = {
-			method: 'GET',
-			headers: {
-				Authorization: token,
-			},
-		};
-
-		fetch(apiOrders, getRequestOptions)
-			.then((response) => response.json())
-			.then((data) => {
-				const sortById = data.sort((itemA, itemB) => itemA.id - itemB.id);
-				setAllOrders(sortById);
-
-			});
-	}
 
 	setTimeout(updateOrders,180000)
 
