@@ -93,8 +93,8 @@ atualizar a lista de pedidos e o total).
 - A tela inicial da aplicação traz a **Página de Login** que apresenta ao usário as opções de fazer o login com email e senha já cadastrados e entrar na plataforma do Divino Burger ou prosseguir para a Página de Cadastro;
 - Na **Página de Cadastro**, o funcionário pode cadastrar-se inserindo seus dados de Nome, E-mail, Senha e Setor de Trabalho;
 - Ao realizar qualquer uma dessas formas de acesso, o usuário será encaminhado para o seu respectivo ambiente:
-    > **Salão**: para os garçons/garçonetes, onde ocorrerá a anotação e encaminhamento dos pedidos para a cozinha;
-    > **Cozinha**: para os cozinheiros que receberão a demanda dos pedidos realizados.
+    1. **Salão**: para os garçons/garçonetes, onde ocorrerá a anotação e encaminhamento dos pedidos para a cozinha;
+    2. **Cozinha**: para os cozinheiros que receberão a demanda dos pedidos realizados.
 
 ---
 ## :busts_in_silhouette: Testes de Usabilidade
@@ -102,7 +102,7 @@ Durante o desenvolvimento do projeto, foram realizados testes de usabilidade com
 
 - Tempo de preparação exibido somente na área de pedidos entregues;
 - Relógio digital;
-- Responsividade para tablet em formato retrato;
+- Responsividade para tablet em formato retrato, adaptando a exibição do carrinho na página de Salão;
 - Histórico com filtragem de pedidos do dia atual;
 - Atualização automática dos pedidos;
 
@@ -180,7 +180,7 @@ Durante o desenvolvimento do projeto, foram realizados testes de usabilidade com
 ![img](./src/assets/tablet-timeline.png)
 ![img](./src/assets/tablet-timeline-perfil.png)
 
-* #### Desktop
+* #### Responsivos
 ![img](./src/assets/desktop-login.png)
 ![img](./src/assets/desktop-register.png)
 ![img](./src/assets/desktop-timeline.png)
