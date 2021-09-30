@@ -80,11 +80,12 @@ atualizar a lista de pedidos e o total).
 
 ---
 
-![img](./src/img/prototipo-login.png)
-![img](./src/img/prototipo-login2.png)
-![img](./src/img/prototipo-salao.png)
-![img](./src/img/prototipo-salao2.png)
-![img](./src/img/prototipo-salao3.png)
+<div style="display: flex" align="center"><br>
+  <img align="center" alt="prototipo-login" height="580" width="480" src="./src/img/prototipo-login2.png">
+  <img align="center" alt="prototipo-salao" height="580" width="480" src="./src/img/prototipo-salao3.png">
+    
+  <img align="center" alt="prototipo-salao" height="600" width="750" src="./src/img/prototipo-salao.png">
+</div>
 
 ---
 ## :gear: Como usar?
@@ -97,13 +98,13 @@ atualizar a lista de pedidos e o total).
 
 ---
 ## :busts_in_silhouette: Testes de Usabilidade
-Durante o desenvolvimento do produto, foram realizados testes de usabilidade com diferentes indivíduos no intuito de analisar a experiência do usuário com a interface da aplicação. Com base nos resultados desse teste, foram detectados os seguintes pontos de ajustes:
+Durante o desenvolvimento do projeto, foram realizados testes de usabilidade com diferentes indivíduos no intuito de analisar a experiência do usuário com a interface da aplicação. Com base nos resultados desses testes, foram implementadas as seguintes soluções:
 
-- ...
-- ...
-- ...
-
-Para a resolução dessas questões, foram implemantadas...
+- Tempo de preparação exibido somente na área de pedidos entregues;
+- Relógio digital;
+- Responsividade para tablet em formato retrato;
+- Histórico com filtragem de pedidos do dia atual;
+- Atualização automática dos pedidos;
 
 ---
 ## :robot: Tecnologias 
