@@ -55,6 +55,8 @@ A interface deve mostrar os dois menus (café da manhã e restante do dia), cada
 um com todos os seus _produtos_. O usuário deve poder escolher que _produtos_
 adicionar e a interface deve mostrar o _resumo do pedido_ com o custo total.
 
+Os pedidos serão enviados por meio de um _tablet_, mas não queremos um aplicativo nativo, mas sim um aplicativo Web que seja mobile-first.
+
 Além disso a cliente nos deu um [link da documentação](https://lab-api-bq.herokuapp.com/api-docs/)
 que especifica o comportamento esperado da API que iremos expor por HTTP.
 Lá podemos encontrar todos os detalhes dos _endpoints_, como por exemplo
