@@ -80,9 +80,9 @@ atualizar a lista de pedidos e o total).
 
 ---
 
-<div style="display: flex" align="center"><br>
-  <img align="center" alt="prototipo-login" height="580" width="410" src="./src/img/prototipo-login2.png">
-  <img align="center" alt="prototipo-salao" height="580" width="410" src="./src/img/prototipo-salao3.png">
+<div style="display: flex" align="center">
+  <img align="center" alt="prototipo-login" height="580" width="410" src="./src/img/prototipo-login2.png"><br><br>
+  <img align="center" alt="prototipo-salao" height="580" width="410" src="./src/img/prototipo-salao3.png"><br><br>
     
   <img align="center" alt="prototipo-salao" height="600" width="750" src="./src/img/prototipo-salao.png">
 </div>
@@ -176,9 +176,9 @@ Durante o desenvolvimento do projeto, foram realizados testes de usabilidade com
 
 * #### Tablet
 <div style="display: flex" align="center">
-  <img align="center" alt="gif-cadastro" height="600" width="800" src="./src/img/gif-cadastro.gif">
-  <img align="center" alt="gif-carrinho" height="600" width="800" src="./src/img/gif-carrinho.gif">
-  <img align="center" alt="gif-pedidos" height="600" width="800" src="./src/img/gif-pedidos.gif">
+  <img align="center" alt="gif-cadastro" height="600" width="800" src="./src/img/gif-cadastro.gif"><br><br>
+  <img align="center" alt="gif-carrinho" height="600" width="800" src="./src/img/gif-carrinho.gif"><br><br>
+  <img align="center" alt="gif-pedidos" height="600" width="800" src="./src/img/gif-pedidos.gif"><br><br>
   <img align="center" alt="gif-status" height="600" width="800" src="./src/img/gif-status.gif">
 </div>
 
