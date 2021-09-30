@@ -75,11 +75,16 @@ atualizar a lista de pedidos e o total).
 ---
 ## :art: Protótipos 
 
-* ####  Tablet
-![img](./src/assets/prototipo-mobile.png)
+### Paleta de Cores 
+![img](./src/img/paleta-cores.png)
 
-* #### Desktop
-![img](./src/assets/prototipo-desktop.png)
+---
+
+![img](./src/img/prototipo-login.png)
+![img](./src/img/prototipo-login2.png)
+![img](./src/img/prototipo-salao.png)
+![img](./src/img/prototipo-salao2.png)
+![img](./src/img/prototipo-salao3.png)
 
 ---
 ## :gear: Como usar?
