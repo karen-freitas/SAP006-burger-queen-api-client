@@ -175,15 +175,13 @@ Durante o desenvolvimento do projeto, foram realizados testes de usabilidade com
 ## ✔️ Resultados
 
 * #### Tablet
-![img](./src/assets/tablet-login.png)
-![img](./src/assets/tablet-register.png)
-![img](./src/assets/tablet-timeline.png)
-![img](./src/assets/tablet-timeline-perfil.png)
+![img](./src/img/gif-cadastro.gif)
+![img](./src/img/gif-carrinho.gif)
+![img](./src/img/gif-pedidos.gif)
+![img](./src/img/gif-status.gif)
 
-* #### Responsivos
-![img](./src/assets/desktop-login.png)
-![img](./src/assets/desktop-register.png)
-![img](./src/assets/desktop-timeline.png)
+* #### Responsivo
+![img](./src/img/gif-responsivo.gif)
 
 ---
 ## :woman_technologist: Sobre as desenvolvedoras
