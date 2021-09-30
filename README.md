@@ -83,8 +83,8 @@ atualizar a lista de pedidos e o total).
 ---
 
 <div align="center" style="display: flex">
-  <img alt="prototipo-login" height="620" width="480" src="./src/img/prototipo-login2.png">
-  <img alt="prototipo-salao" height="620" width="480" src="./src/img/prototipo-salao3.png"><br><br>
+  <img alt="prototipo-login" height="580" width="410" src="./src/img/prototipo-login2.png">
+  <img alt="prototipo-salao" height="580" width="410" src="./src/img/prototipo-salao3.png"><br><br>
   
   <img alt="prototipo-salao" height="600" width="750" src="./src/img/prototipo-salao.png">
 </div>
