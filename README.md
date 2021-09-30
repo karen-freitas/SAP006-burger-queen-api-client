@@ -175,10 +175,12 @@ Durante o desenvolvimento do projeto, foram realizados testes de usabilidade com
 ## ✔️ Resultados
 
 * #### Tablet
-![img](./src/img/gif-cadastro.gif)
-![img](./src/img/gif-carrinho.gif)
-![img](./src/img/gif-pedidos.gif)
-![img](./src/img/gif-status.gif)
+<div style="display: flex" align="center">
+  <img align="center" alt="gif-cadastro" height="600" width="800" src="./src/img/gif-cadastro.gif">
+  <img align="center" alt="gif-carrinho" height="600" width="800" src="./src/img/gif-carrinho.gif">
+  <img align="center" alt="gif-pedidos" height="600" width="800" src="./src/img/gif-pedidos.gif">
+  <img align="center" alt="gif-status" height="600" width="800" src="./src/img/gif-status.gif">
+</div>
 
 * #### Responsivo
 ![img](./src/img/gif-responsivo.gif)
