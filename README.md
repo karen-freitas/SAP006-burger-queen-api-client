@@ -82,12 +82,15 @@ atualizar a lista de pedidos e o total).
 
 ---
 
-<div style="display: flex" align="center">
-  <img align="center" alt="prototipo-login" height="580" width="300" src="./src/img/prototipo-login2.png"><br><br>
-  <img align="center" alt="prototipo-salao" height="580" width="300" src="./src/img/prototipo-salao3.png"><br><br>
-    
-  <img align="center" alt="prototipo-salao" height="600" width="750" src="./src/img/prototipo-salao.png">
+<div style="display: inline_block">
+  <img align="center" alt="prototipo-login" height="580" width="400" src="./src/img/prototipo-login2.png"><br><br>
+  <img align="center" alt="prototipo-salao" height="580" width="400" src="./src/img/prototipo-salao3.png"><br><br>
 </div>
+
+<div align="center">
+  <img align-self="center" alt="prototipo-salao" height="600" width="750" src="./src/img/prototipo-salao.png">
+</div>
+
 
 ---
 ## :gear: Como usar?
