@@ -47,11 +47,12 @@
 		display:none;
 	
 	}
+
 	
 
 	.added-items-container {
 		height: 82%;
-		overflow: auto;
+		overflow-y: auto;
 		margin: 25px 2%;
 		border-top: 0.1rem solid var(--stroke);
 		padding-top: 1rem;
@@ -69,18 +70,24 @@
 				background: rgba(255, 255, 255, 0.2);
 			}
 		}
+
 		@media (min-device-width: 1400px) {
 			margin: 0% 2%;
 		}
 	}
 
+	@media (max-device-width: 1025px) {
+		height:70vh;
+	}
+
 	@media (min-device-width: 1025px) {
 		width: 33vw;
-	
-		@media (max-device-height : 600px){
-      height: 160vh;
-    }
 	}
+	
+		@media (max-device-height : 700px){
+      height: 100vh;
+    }
+	
 
 	@media (min-device-width: 1400px) {
 		padding-bottom: 9rem;
