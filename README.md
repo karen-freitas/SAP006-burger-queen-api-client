@@ -134,9 +134,9 @@ Durante o desenvolvimento do projeto, foram realizados testes de usabilidade com
 |   |   ├── 📁All-day
 |   |   ├── 📁Breakfast
 |   |   ├── 📁ButtonDefault
-|   |   ├── 📁ButtonLogout
+|   |   ├── 📁ButtonImg
 |   |   ├── 📁ButtonRadio
-|   |   ├── 📁ButtonRadioRegister
+|   |   ├── 📁ButtonSelect
 |   |   ├── 📁CarArea
 |   |   ├── 📁CartItem
 |   |   ├── 📁DateTime
