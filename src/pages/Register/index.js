@@ -4,7 +4,7 @@ import arrow from '../../img/arrow.png';
 import { loginRedirection, validationInputs } from '../../services';
 import ErrorMessage from '../../components/ErrorMessage';
 import ButtonDefault from '../../components/ButtonDefault';
-import ButtonRadioRegister from '../../components/ButtonRadioRegister';
+import ButtonSelect from '../../components/ButtonSelect';
 import Loader from '../../components/Loader';
 
 import './register.scss';
@@ -41,7 +41,7 @@ const Register = () => {
 		setErrorName(false);
 		setErrorEmail(false);
 		setErrorPassword(false);
-		setErrors({			
+		setErrors({
 		});
 	};
 
@@ -164,7 +164,7 @@ const Register = () => {
 								)}
 							</fieldset>
 							<div className="radio-wrapper">
-								<ButtonRadioRegister onChange={onChange} />
+								<ButtonSelect onChange={onChange} />
 								{errors.role && <ErrorMessage>{errors.role}</ErrorMessage>}
 							</div>
 

@@ -8,7 +8,7 @@ export default function LinkAside({
  children, className, type, onClick
 }) {
   return (
-    <li type={type} onClick={onClick}>
+    <li data-testid="list-item" type={type} onClick={onClick}>
       <a>
         <div className={`item-aside ${type} ${className}`}>
          

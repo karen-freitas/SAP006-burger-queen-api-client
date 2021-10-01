@@ -53,8 +53,9 @@ describe('Tests for ButtonRadio component', () => {
 
   })
 
-  it('should change the checked input when any button is clicked', () => {
-    render(<ButtonRadio name={name} firstInputValue={firstInputValue} firstInputId={firstInputId} firstLabel={firstLabel} secondInputValue={secondInputValue} secondInputId={secondInputId} secondLabel={secondLabel} thirdInputValue={thirdInputValue} thirdInputId={thirdInputId} thirdLabel={thirdLabel} />);
+  it('should change the checked input and call a function when any button is clicked', () => {
+    const onChange = jest.fn()
+    render(<ButtonRadio onChange={onChange} name={name} firstInputValue={firstInputValue} firstInputId={firstInputId} firstLabel={firstLabel} secondInputValue={secondInputValue} secondInputId={secondInputId} secondLabel={secondLabel} thirdInputValue={thirdInputValue} thirdInputId={thirdInputId} thirdLabel={thirdLabel} />);
     const input1 = screen.getByLabelText(firstLabel)
     const input2 = screen.getByLabelText(secondLabel)
     const input3 = screen.getByLabelText(thirdLabel)
@@ -65,40 +66,15 @@ describe('Tests for ButtonRadio component', () => {
     expect(input2.checked).toEqual(false)
     expect(input3.checked).toEqual(false)
 
+    expect(onChange).toHaveBeenCalledTimes(1)
+
     fireEvent.click(input3)
 
     expect(input1.checked).toEqual(false)
     expect(input2.checked).toEqual(false)
     expect(input3.checked).toEqual(true)
 
+    expect(onChange).toHaveBeenCalledTimes(2)
     
-  });
-
-  // it('should call a function when its value is changed', () => {
-  //   const onChange = jest.fn()
-  //   const {container} = render(<ButtonRadio onChange={onChange} name={name} firstInputValue={firstInputValue} firstInputId={firstInputId} firstLabel={firstLabel} secondInputValue={secondInputValue} secondInputId={secondInputId} secondLabel={secondLabel} thirdInputValue={thirdInputValue} thirdInputId={thirdInputId} thirdLabel={thirdLabel} />);
-  //   const input1 = screen.getByLabelText(firstLabel)
-  //   const input2 = screen.getByLabelText(secondLabel)
-  //   const input3 = screen.getByLabelText(thirdLabel)
-
-  //   const dialogContainer = getAllByRole(container, "input");
-
-  //   // fireEvent.change(input1, {
-  //   //   target: {
-  //   //     value: secondInputValue
-  //   //   }
-  //   // });
-
-  //   // fireEvent.change(input2, {
-  //   //   target: {
-  //   //     value: secondInputValue
-  //   //   }
-  //   // });
-  //   fireEvent.change(input2)
-
-  //   // expect(onChange).toHaveBeenCalledTimes(1)
-   
-  
-    
-  // });
-});
+  })
+})

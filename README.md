@@ -126,9 +126,9 @@ Para a resolução dessas questões, foram implemantadas...
 |   |   ├── 📁All-day
 |   |   ├── 📁Breakfast
 |   |   ├── 📁ButtonDefault
-|   |   ├── 📁ButtonLogout
+|   |   ├── 📁ButtonImg
 |   |   ├── 📁ButtonRadio
-|   |   ├── 📁ButtonRadioRegister
+|   |   ├── 📁ButtonSelect
 |   |   ├── 📁CarArea
 |   |   ├── 📁CartItem
 |   |   ├── 📁DateTime

@@ -13,13 +13,12 @@ export default function ProductArea({
     inputName,
     inputValue,
     inputChecked,
-    className,
     onClick
 }) {
 
     
     return (
-        <div className="product-container" onClick={onClick}>
+        <div data-testid="product-item" className="product-container" onClick={onClick}>
             <input
                 type='radio'
                 className="hidden product-name"
@@ -28,7 +27,7 @@ export default function ProductArea({
                 value={inputValue}
                 checked={inputChecked}
                 price={productPrice}
-                // onClick = {toggleChecked}
+        
             />
             <label
                 htmlFor={inputId}

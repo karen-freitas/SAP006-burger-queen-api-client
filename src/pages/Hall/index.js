@@ -7,6 +7,7 @@ import './hall.scss';
 import LinkAside from '../../components/LinkAside';
 import CartArea from '../../components/CartArea'
 import ButtonDefault from '../../components/ButtonDefault';
+import ButtonImg from '../../components/ButtonImg';
 import Input from '../../components/Input';
 import Snack from '../../components/Breakfast/Snack';
 import Coffee from '../../components/Breakfast/Coffee';
@@ -409,9 +410,8 @@ export default function Hall() {
 							value={client}
 							onChange={onChangeClient}
 						/>
-						<button className="cart-portrait" onClick={() => setVisibilityCart(true)}>
-							<img src={cart} alt="carrinho" />
-						</button>
+
+						<ButtonImg className="cart-portrait" onClick={() => setVisibilityCart(true)} src={cart} alt="carrinho"/>
 					</div>
 					<div className="menu">
 
