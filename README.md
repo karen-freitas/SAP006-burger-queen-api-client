@@ -55,6 +55,8 @@ A interface deve mostrar os dois menus (café da manhã e restante do dia), cada
 um com todos os seus _produtos_. O usuário deve poder escolher que _produtos_
 adicionar e a interface deve mostrar o _resumo do pedido_ com o custo total.
 
+Os pedidos serão enviados por meio de um _tablet_, mas não queremos um aplicativo nativo, mas sim um aplicativo Web que seja mobile-first.
+
 Além disso a cliente nos deu um [link da documentação](https://lab-api-bq.herokuapp.com/api-docs/)
 que especifica o comportamento esperado da API que iremos expor por HTTP.
 Lá podemos encontrar todos os detalhes dos _endpoints_, como por exemplo
@@ -75,11 +77,17 @@ atualizar a lista de pedidos e o total).
 ---
 ## :art: Protótipos 
 
-* ####  Tablet
-![img](./src/assets/prototipo-mobile.png)
+### Paleta de Cores 
+![img](./src/img/paleta-cores.png)
 
-* #### Desktop
-![img](./src/assets/prototipo-desktop.png)
+---
+
+<div align="center" style="display: flex">
+  <img alt="prototipo-login" height="580" width="410" src="./src/img/prototipo-login2.png">
+  <img alt="prototipo-salao" height="580" width="410" src="./src/img/prototipo-salao3.png"><br><br>
+  
+  <img alt="prototipo-salao" height="600" width="750" src="./src/img/prototipo-salao.png">
+</div>
 
 ---
 ## :gear: Como usar?
@@ -87,18 +95,18 @@ atualizar a lista de pedidos e o total).
 - A tela inicial da aplicação traz a **Página de Login** que apresenta ao usário as opções de fazer o login com email e senha já cadastrados e entrar na plataforma do Divino Burger ou prosseguir para a Página de Cadastro;
 - Na **Página de Cadastro**, o funcionário pode cadastrar-se inserindo seus dados de Nome, E-mail, Senha e Setor de Trabalho;
 - Ao realizar qualquer uma dessas formas de acesso, o usuário será encaminhado para o seu respectivo ambiente:
-    > **Salão**: para os garçons/garçonetes, onde ocorrerá a anotação e encaminhamento dos pedidos para a cozinha;
-    > **Cozinha**: para os cozinheiros que receberão a demanda dos pedidos realizados.
+    1. **Salão**: para os garçons/garçonetes, onde ocorrerá a anotação e encaminhamento dos pedidos para a cozinha;
+    2. **Cozinha**: para os cozinheiros que receberão a demanda dos pedidos realizados.
 
 ---
 ## :busts_in_silhouette: Testes de Usabilidade
-Durante o desenvolvimento do produto, foram realizados testes de usabilidade com diferentes indivíduos no intuito de analisar a experiência do usuário com a interface da aplicação. Com base nos resultados desse teste, foram detectados os seguintes pontos de ajustes:
+Durante o desenvolvimento do projeto, foram realizados testes de usabilidade com diferentes indivíduos no intuito de analisar a experiência do usuário com a interface da aplicação. Com base nos resultados desses testes, foram implementadas as seguintes soluções:
 
-- ...
-- ...
-- ...
-
-Para a resolução dessas questões, foram implemantadas...
+- Tempo de preparação exibido somente na área de pedidos entregues;
+- Relógio digital;
+- Responsividade para tablet em formato retrato, adaptando a exibição do carrinho na página de Salão;
+- Histórico com filtragem de pedidos do dia atual;
+- Atualização automática dos pedidos;
 
 ---
 ## :robot: Tecnologias 
@@ -169,15 +177,15 @@ Para a resolução dessas questões, foram implemantadas...
 ## ✔️ Resultados
 
 * #### Tablet
-![img](./src/assets/tablet-login.png)
-![img](./src/assets/tablet-register.png)
-![img](./src/assets/tablet-timeline.png)
-![img](./src/assets/tablet-timeline-perfil.png)
+<div style="display: flex" align="center">
+  <img align="center" alt="gif-cadastro" height="600" width="800" src="./src/img/gif-cadastro.gif"><br><br>
+  <img align="center" alt="gif-carrinho" height="600" width="800" src="./src/img/gif-carrinho.gif"><br><br>
+  <img align="center" alt="gif-pedidos" height="600" width="800" src="./src/img/gif-pedidos.gif"><br><br>
+  <img align="center" alt="gif-status" height="600" width="800" src="./src/img/gif-status.gif">
+</div>
 
-* #### Desktop
-![img](./src/assets/desktop-login.png)
-![img](./src/assets/desktop-register.png)
-![img](./src/assets/desktop-timeline.png)
+* #### Responsivo
+![img](./src/img/gif-responsivo.gif)
 
 ---
 ## :woman_technologist: Sobre as desenvolvedoras
