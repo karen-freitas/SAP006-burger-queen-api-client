@@ -1,14 +1,27 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable object-curly-newline */
 import React, {useState, useEffect, useCallback} from 'react';
-import ListAllOrders from '../ListAllOrders'
-import Header from '../Header'
-import ButtonDefault from '../ButtonDefault';
+import { useLocation } from 'react-router-dom';
+import ListAllOrders from '../../components/ListAllOrders'
+import Header from '../../components/Header'
+import ButtonDefault from '../../components/ButtonDefault';
 
 
-export default function OrdersPanel({classBtn}) {
+export default function OrdersPanel() {
 	
 	const [allOrders, setAllOrders] = useState([]);
+	const [classBtn, setClassBtn] = useState('')
+
+	const location = useLocation();
+
+	useEffect(() => {
+		if(location.pathname==="/salao-pedidos"){
+			setClassBtn('goback')
+		}else{
+			setClassBtn('btn-hidden')
+		}
+	}, [location.pathname])
+	
 
 
 	const apiURL = 'https://lab-api-bq.herokuapp.com';

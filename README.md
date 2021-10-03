@@ -147,7 +147,7 @@ Durante o desenvolvimento do projeto, foram realizados testes de usabilidade com
 |   |   ├── 📁ListAllOrders
 |   |   ├── 📁Loader
 |   |   ├── 📁NotFound
-|   |   ├── 📁OrdersPanel
+|   |   ├── 📁Orders
 |   |   ├── 📁Popup
 |   |   ├── 📁PopupCancel
 |   |   └── 📁ProductArea
@@ -155,10 +155,9 @@ Durante o desenvolvimento do projeto, foram realizados testes de usabilidade com
 |   ├── 📁img
 |   |
 |   ├── 📁pages
-|   |   ├── 📁hall
-|   |   ├── 📁HallOrders
-|   |   ├── 📁Kitchen
+|   |   ├── 📁Hall
 |   |   ├── 📁Login
+|   |   ├── 📁OrdersPanel
 |   |   └── 📁Register
 |   |
 |   ├── 📁services
