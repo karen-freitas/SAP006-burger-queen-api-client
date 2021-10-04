@@ -71,6 +71,24 @@ toda vez que adicionamos um _produto_ para um _pedido_, a interface deve
 atualizar a lista de pedidos e o total).
 
 ---
+
+<div align="center" style="display: flex">
+  <img alt="logo" height="200" width="200" src="./src/img/logo.png">
+</div>
+
+<div align='center'>
+ 
+  <h4> Você pode acessar a aplicação e utilizar um dos logins de teste abaixo:</h4>
+
+
+| #                     	|             Salão            	|           Cozinha           	|
+|:-----------------------:|:----------------------------:	|:---------------------------:	|
+| 🆔	| salao@divinoburger.com.br 	| cozinha@divinoburger.com.br 	|
+| :key:                 	|            123456            	|            123456           	|
+
+</div>
+
+---
 ## :pencil2: Histórias de Usuários
 ![img](./src/img/historias-usuarios.png)
 
@@ -109,7 +127,7 @@ Durante o desenvolvimento do projeto, foram realizados testes de usabilidade com
 - Atualização automática dos pedidos;
 
 ---
-## :robot: Tecnologias 
+## :robot: Tecnologias Utilizadas
 
 | Ferramenta | Descrição |
 | --- | --- |
