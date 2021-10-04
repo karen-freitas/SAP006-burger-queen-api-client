@@ -54,7 +54,7 @@ export default function Login() {
       Object.keys(errorsObject).length === 0 &&
       errorsObject.constructor === Object
     ) {
-     ;
+      setLoading(true)
       const loginData = {
         method: 'POST',
         headers: {
@@ -62,6 +62,7 @@ export default function Login() {
         },
         body: JSON.stringify(values),
       };
+      
 
       fetch(url, loginData)
         .then((response) => response.json())

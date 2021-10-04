@@ -1,32 +1,40 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Register from './index';
-import ButtonDefault from "../../components/ButtonDefault"
 
 describe('Tests for Register page', () => {
-	it('should render images and texts', () => {
-		render(<Register/>);
+  it('should render two buttons', () => {
+    render(<Register />);
 
-        const text = screen.getByText('Cadastro');
-        const img = screen.getByRole('img');
+    const button = screen.getAllByRole('button');
+    expect(button).toHaveLength(2);
+  });
 
-        expect(text).toBeInTheDocument();
-        expect(img).toBeInTheDocument();
-    });
+  it('should render texts', () => {
+    render(<Register />);
 
-    it('should render a button with the text provided', () => {
-        const texto = "Nome botão";
-        render(<ButtonDefault>{texto}</ButtonDefault>);
-        const btn = screen.getByText(texto)
-        expect(btn).toBeInTheDocument();
-      });
-    
-      it('should call a function when clicked', () => {
-        const onClick = jest.fn()
-        render(<ButtonDefault onClick={onClick}/>)
-        const btn = screen.getByRole('button')
-        expect(onClick).toHaveBeenCalledTimes(0)
-        fireEvent.click(btn)
-        expect(onClick).toHaveBeenCalledTimes(1)
-      })
+    expect(screen.getByText('Cadastro')).toBeInTheDocument();
+    expect(screen.getByText('Cadastrar')).toBeInTheDocument();
+
+  });
+
+  it('should render two inputs radio', () => {
+    render(<Register />);
+    const inputs = screen.getAllByRole('radio')
+    expect(inputs).toHaveLength(2)
+
+  });
+
+  it('should render  inputs with placeholders', () => {
+    render(<Register />);
+    const input1 = screen.getByPlaceholderText('Email')
+    expect(input1).toBeInTheDocument()
+    const input2 = screen.getByPlaceholderText('Senha')
+    expect(input2).toBeInTheDocument()
+    const input3 = screen.getByPlaceholderText('Nome completo')
+    expect(input3).toBeInTheDocument()
+  });
+
 });
+
+

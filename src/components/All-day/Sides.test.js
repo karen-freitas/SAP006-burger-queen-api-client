@@ -5,9 +5,9 @@ import Sides from './Sides';
 describe('Tests for Sides component', () => {
 	it('should render products information', () => {
 		render(<Sides/>);
-    const fries = screen.getByText("Batata Frita")
-    const onionRings= screen.getByText("Anéis de cebola")
-    const price = screen.getAllByText("R$ 5,00")
+    const fries = screen.getByText('Batata Frita')
+    const onionRings= screen.getByText('Anéis de cebola')
+    const price = screen.getAllByText('R$ 5,00')
     expect(fries).toBeInTheDocument()
     expect(onionRings).toBeInTheDocument()
     expect(price).toHaveLength(2)

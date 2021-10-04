@@ -11,7 +11,7 @@ export default function ListAllOrders({
 }) {
 	const [allOrders, setAllOrders] = useState([]);
 	const [showPopup, setShowPopup] = useState(false);
-	const [popUpText, setPopUpText] = useState("")
+	const [popUpText, setPopUpText] = useState('')
 
 
 	const apiURL = 'https://lab-api-bq.herokuapp.com';
@@ -39,39 +39,39 @@ export default function ListAllOrders({
 
 	const orderStatus = (status) => {
 		switch (status) {
-			case "pending":
-				return "Em espera"
+			case 'pending':
+				return 'Em espera'
 
-			case "loading":
-				return "Iniciado"
+			case 'loading':
+				return 'Iniciado'
 
-			case "done":
-				return "Pronto"
+			case 'done':
+				return 'Pronto'
 
-			case "delivered":
-				return "Entregue"
+			case 'delivered':
+				return 'Entregue'
 
 			default:
-				return "Indeterminado"
+				return 'Indeterminado'
 		}
 	}
 
 	const buttonText = (status) => {
 		switch (status) {
-			case "pending":
-				return "Atualizar pedido - Iniciado "
+			case 'pending':
+				return 'Atualizar pedido - Iniciado '
 
-			case "loading":
-				return "Atualizar pedido - Pronto"
+			case 'loading':
+				return 'Atualizar pedido - Pronto'
 
-			case "done":
-				return "Atualizar pedido - Entregue"
+			case 'done':
+				return 'Atualizar pedido - Entregue'
 
-			case "delivered":
-				return ""
+			case 'delivered':
+				return ''
 
 			default:
-				return ""
+				return ''
 		}
 	}
 
@@ -104,59 +104,44 @@ export default function ListAllOrders({
 
 			})
 			.then(() => {
-				setPopUpText("O status do pedido foi atualizado!")
+				setPopUpText('O status do pedido foi atualizado!')
 				setShowPopup(true)
 				updateOrders()
 				setTimeout(() => setShowPopup(false), 2000)
 			})
 	}
 
-	// APAGAR PEDIDOS
-	// 	for(const order of allOrders){
-	// 		fetch(`${apiOrders}${order.id}`,
-	// 		{
-	// 			method: 'DELETE',
-	// 			headers: {
-	// 				Authorization: token,
-	// 				'Content-Type': 'application/json',
-	// 				'Access-Control-Allow-Origin': '*',
-	// 				'Access-Control-Allow-Credentials': true,
-	// 				'Access-Control-Allow-Methods': 'GET,OPTIONS,PATCH,DELETE,POST',
-	// 			}
-	// 	})		
-	// }
-
 
 	const statusOnClick = (index, id, status) => {
 		switch (role()) {
-			case "kitchen":
+			case 'kitchen':
 				switch (status) {
-					case "pending":
+					case 'pending':
 						updateOrderStatus(index, id, 'loading', allOrders, setAllOrders)
 						break
 
-					case "loading":
+					case 'loading':
 						updateOrderStatus(index, id, 'done', allOrders, setAllOrders)
 						break
 
 					default:
-						setPopUpText("Usuário não autorizado a alterar este status.")
+						setPopUpText('Usuário não autorizado a alterar este status.')
 						setShowPopup(true)
 				}
 				break
-			case "hall":
+			case 'hall':
 				switch (status) {
-					case "done":
+					case 'done':
 						updateOrderStatus(index, id, 'delivered', allOrders, setAllOrders)
 						break
 
 					default:
-						setPopUpText("Usuário não autorizado a alterar este status.")
+						setPopUpText('Usuário não autorizado a alterar este status.')
 						setShowPopup(true)
 				}
 				break
 			default:
-				setPopUpText("A operação falhou.")
+				setPopUpText('A operação falhou.')
 				setShowPopup(true)
 		}
 	}
@@ -181,8 +166,8 @@ export default function ListAllOrders({
 	return (
 		<>
 
-			{session ? "" : <ButtonDefault className={`btn-default btn-list-orders ${className}`} onClick={todayOrders}>Pedidos do dia</ButtonDefault>}
-			{session ? "" : <ButtonDefault className={`btn-default btn-list-orders ${className}`} onClick={() => updateOrders()}>Todos</ButtonDefault>}
+			{session ? '' : <ButtonDefault className={`btn-default btn-list-orders ${className}`} onClick={todayOrders}>Pedidos do dia</ButtonDefault>}
+			{session ? '' : <ButtonDefault className={`btn-default btn-list-orders ${className}`} onClick={() => updateOrders()}>Todos</ButtonDefault>}
 			<section className="cards-orders-container">
 				{ordersFilteredByStatus.map((order, index) => (
 						<div className="card-order-template" key={order.id}>
@@ -221,9 +206,9 @@ export default function ListAllOrders({
 										)}h`}</span>
 									</p>
 
-									{order.status === "delivered" ? (<p>Tempo de preparação:{' '}
+									{order.status === 'delivered' ? (<p>Tempo de preparação:{' '}
 										<span> {converter(order.updatedAt, order.createdAt)}</span>
-									</p>) : ""}
+									</p>) : ''}
 
 								</div>
 								<p className="products-title uppercase">Produtos</p>

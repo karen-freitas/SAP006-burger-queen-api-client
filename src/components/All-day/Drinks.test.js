@@ -5,12 +5,12 @@ import Drinks from './Drinks';
 describe('Tests for Drinks component', () => {
 	it('should render products information', () => {
 		render(<Drinks/>);
-    const water = screen.getByText("Água")
-    const soda = screen.getByText("Refrigerante")
-    const small = screen.getByText("500mL")
-    const big= screen.getByText("750mL")
-    const smallPrice = screen.getByText("R$ 5,00")
-    const bigPrice = screen.getByText("R$ 7,00")
+    const water = screen.getByText('Água')
+    const soda = screen.getByText('Refrigerante')
+    const small = screen.getByText('500mL')
+    const big= screen.getByText('750mL')
+    const smallPrice = screen.getByText('R$ 5,00')
+    const bigPrice = screen.getByText('R$ 7,00')
    
 
     expect(water).toBeInTheDocument()

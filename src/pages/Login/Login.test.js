@@ -1,35 +1,34 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen} from '@testing-library/react';
 import Login from './index';
-import ButtonDefault from "../../components/ButtonDefault"
 
 
 describe('Tests for Login page', () => {
-	it('should render buttons, images and texts', () => {
-		render(<Login/>);
+  it('should render one button and one image', () => {
+    render(<Login />);
 
-        const button = screen.getByRole('button');
-        const text = screen.getByText('Login');
-        const img = screen.getByRole('img');
+    const button = screen.getByRole('button');
+    const img = screen.getByRole('img');
 
-        expect(button).toBeInTheDocument();
-        expect(text).toBeInTheDocument();
-        expect(img).toBeInTheDocument();
-    });
+    expect(button).toBeInTheDocument();
+    expect(img).toBeInTheDocument();
+  });
 
-    it('should render a button with the text provided', () => {
-        const texto = "Nome botão";
-        render(<ButtonDefault>{texto}</ButtonDefault>);
-        const btn = screen.getByText(texto)
-        expect(btn).toBeInTheDocument();
-      });
-    
-      it('should call a function when clicked', () => {
-        const onClick = jest.fn()
-        render(<ButtonDefault onClick={onClick}/>)
-        const btn = screen.getByRole('button')
-        expect(onClick).toHaveBeenCalledTimes(0)
-        fireEvent.click(btn)
-        expect(onClick).toHaveBeenCalledTimes(1)
-      })
+  it('should render texts', () => {
+    render(<Login />);
+
+    expect(screen.getByText('Login')).toBeInTheDocument();
+    expect(screen.getByText('Primeiro acesso?')).toBeInTheDocument();
+    expect(screen.getByText('Cadastre-se')).toBeInTheDocument();
+
+  });
+
+  it('should render two inputs', () => {
+    render(<Login />);
+    const input1=screen.getByPlaceholderText('Email')
+    expect(input1).toBeInTheDocument()
+    const input2=screen.getByPlaceholderText('Senha')
+    expect(input2).toBeInTheDocument()
+
+  });
 });

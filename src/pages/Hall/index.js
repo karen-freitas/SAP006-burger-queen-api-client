@@ -63,7 +63,7 @@ export default function Hall() {
 	const [activation2, setActivation2] = useState(false)
 	const [activation3, setActivation3] = useState(false)
 
-	const [productSelected, setProductSelected] = useState("")
+	const [productSelected, setProductSelected] = useState('')
 	const chooseProduct = (e) => {
 		setProductSelected({
 			name: e.target.value,
@@ -93,7 +93,7 @@ export default function Hall() {
 
 	const chooseComplement = (e) => {
 		let complementValue
-		if (e.target.value === "") {
+		if (e.target.value === '') {
 			complementValue = null
 		} else {
 			complementValue = e.target.value
@@ -109,7 +109,7 @@ export default function Hall() {
 	const chooseDrink = (e) => {
 		setProductSelected(prevProduct => ({
 			...prevProduct,
-			name: `${e.target.value} ${prevProduct.size ? prevProduct.size : ""}`,
+			name: `${e.target.value} ${prevProduct.size ? prevProduct.size : ''}`,
 			quantity: 1,
 
 		}))
@@ -118,7 +118,7 @@ export default function Hall() {
 	const chooseSizeDrink = (e) => {
 		setProductSelected(prevProduct => ({
 			...prevProduct,
-			name: `${prevProduct.name ? `${prevProduct.name.split(" ")[0]} ${e.target.getAttribute('data-item')}` : ""}`,
+			name: `${prevProduct.name ? `${prevProduct.name.split(' ')[0]} ${e.target.getAttribute('data-item')}` : ''}`,
 			size: e.target.getAttribute('data-item'),
 			price: e.target.getAttribute('price'),
 			flavor: null,
@@ -127,16 +127,16 @@ export default function Hall() {
 	}
 
 	const [products, setProducts] = useState(<Burgers chooseBurger={chooseBurger} chooseFlavor={chooseFlavor} chooseComplement={chooseComplement} />)
-	const [breakfastClass, setBreakfastClass] = useState("")
-	const [allDayClass, setAllDayClass] = useState("selected")
+	const [breakfastClass, setBreakfastClass] = useState('')
+	const [allDayClass, setAllDayClass] = useState('selected')
 
 	const selectBreakfast = () => {
-		setProductSelected("")
+		setProductSelected('')
 		setActivation1(true)
 		setActivation2(false)
 		setActivation3(false)
-		setBreakfastClass("selected")
-		setAllDayClass("")
+		setBreakfastClass('selected')
+		setAllDayClass('')
 		setValues({
 			first: 'snacks',
 			second: 'coffes',
@@ -151,12 +151,12 @@ export default function Hall() {
 	}
 
 	const selectAllDay = () => {
-		setProductSelected("")
+		setProductSelected('')
 		setActivation1(true)
 		setActivation2(false)
 		setActivation3(false)
-		setAllDayClass("selected")
-		setBreakfastClass("")
+		setAllDayClass('selected')
+		setBreakfastClass('')
 		setValues({
 			first: 'burgers',
 			second: 'sides',
@@ -178,25 +178,25 @@ export default function Hall() {
 	}
 
 	const changeProducts = (e) => {
-		setProductSelected("")
+		setProductSelected('')
 		const click = e.target.innerText
 		switch (click) {
-			case "BURGERS":
+			case 'BURGERS':
 				switchMenu(true, false, false, <Burgers chooseBurger={chooseBurger} chooseFlavor={chooseFlavor} chooseComplement={chooseComplement} />)
 				break;
-			case "ADICIONAIS":
+			case 'ADICIONAIS':
 				switchMenu(false, true, false, <Sides onClick={chooseProduct} />)
 				break
-			case "BEBIDAS":
+			case 'BEBIDAS':
 				switchMenu(false, false, true, <Drinks chooseDrink={chooseDrink} chooseSizeDrink={chooseSizeDrink} />)
 				break
-			case "LANCHES":
+			case 'LANCHES':
 				switchMenu(true, false, false, <Snack onClick={chooseProduct} />)
 				break;
-			case "CAFÉS":
+			case 'CAFÉS':
 				switchMenu(false, true, false, <Coffee onClick={chooseProduct} />)
 				break
-			case "SUCOS":
+			case 'SUCOS':
 				switchMenu(false, false, true, <Juice onClick={chooseProduct} />)
 				break
 			default:
@@ -205,13 +205,13 @@ export default function Hall() {
 
 	const [showPopup, setShowPopup] = useState(false);
 	const [showPopupCancel, setShowPopupCancel] = useState(false);
-	const [popUpText, setPopUpText] = useState("")
+	const [popUpText, setPopUpText] = useState('')
 	const [cartContent, setCartContent] = useState([])
 
 	const addProduct = () => {
-		if (productSelected.name !== undefined && productSelected.price !== undefined && productSelected.name !== "") {
+		if (productSelected.name !== undefined && productSelected.price !== undefined && productSelected.name !== '') {
 			if (productSelected.flavor === undefined) {
-				setPopUpText("Selecione um item antes de adicioná-lo!")
+				setPopUpText('Selecione um item antes de adicioná-lo!')
 				setShowPopup(true);
 
 			} else {
@@ -230,15 +230,15 @@ export default function Hall() {
 			}
 
 		} else {
-			setPopUpText("Selecione um item antes de adicioná-lo!")
+			setPopUpText('Selecione um item antes de adicioná-lo!')
 			setShowPopup(true);
 		}
 	}
 
 	const addUnit = (e) => {
-		const name = e.target.getAttribute("name")
-		const flavor = e.target.getAttribute("flavor")
-		const complement = e.target.getAttribute("complement")
+		const name = e.target.getAttribute('name')
+		const flavor = e.target.getAttribute('flavor')
+		const complement = e.target.getAttribute('complement')
 		const newArray = [...cartContent]
 		const productInCart = newArray.find(product => product.name === name && product.flavor === flavor && product.complement === complement)
 		productInCart.quantity += 1
@@ -246,9 +246,9 @@ export default function Hall() {
 	}
 
 	const removeUnit = (e) => {
-		const name = e.target.getAttribute("name")
-		const flavor = e.target.getAttribute("flavor")
-		const complement = e.target.getAttribute("complement")
+		const name = e.target.getAttribute('name')
+		const flavor = e.target.getAttribute('flavor')
+		const complement = e.target.getAttribute('complement')
 		const newArray = [...cartContent]
 		const productInCart = newArray.find(product => product.name === name && product.flavor === flavor && product.complement === complement)
 		productInCart.quantity -= 1
@@ -274,7 +274,7 @@ export default function Hall() {
 		setClient(name)
 	};
 
-	const [selectTable, setSelectTable] = useState("")
+	const [selectTable, setSelectTable] = useState('')
 
 	const onChangeTable = (e) => {
 		setTable(e.target.value)
@@ -282,13 +282,13 @@ export default function Hall() {
 	}
 
 	const sendOrder = () => {
-		if (table === "" || client === "") {
-			setPopUpText("Dados do cliente incompletos. Preencha antes de enviar o pedido!")
+		if (table === '' || client === '') {
+			setPopUpText('Dados do cliente incompletos. Preencha antes de enviar o pedido!')
 			setShowPopup(true)
-			setSelectTable("")
+			setSelectTable('')
 
 		} else if (cartContent.length === 0) {
-			setPopUpText("O Carrinho está vazio. Adicione os produtos antes de enviar o pedido!")
+			setPopUpText('O Carrinho está vazio. Adicione os produtos antes de enviar o pedido!')
 			setShowPopup(true)
 
 		} else {
@@ -310,12 +310,12 @@ export default function Hall() {
 			}
 			setCartContent([])
 			setClient('')
-			setSelectTable("")
+			setSelectTable('')
 			setTable('')
 			setPopUpText('O pedido foi enviado com sucesso.')
-			setSelectTable("")
+			setSelectTable('')
 			setShowPopup(true)
-			setAllDayClass("selected")
+			setAllDayClass('selected')
 			setBreakfastClass('')
 			setProducts(<Burgers chooseBurger={chooseBurger} chooseFlavor={chooseFlavor} chooseComplement={chooseComplement} />)
 
@@ -341,12 +341,12 @@ export default function Hall() {
 					} else {
 						setCartContent([])
 						setClient('')
-						setSelectTable("")
+						setSelectTable('')
 						setTable('')
 						setPopUpText('O pedido foi enviado com sucesso.')
-						setSelectTable("")
+						setSelectTable('')
 						setShowPopup(true)
-						setAllDayClass("selected")
+						setAllDayClass('selected')
 						setBreakfastClass('')
 						setProducts(<Burgers chooseBurger={chooseBurger} chooseFlavor={chooseFlavor} chooseComplement={chooseComplement} />)
 					}
@@ -455,7 +455,7 @@ export default function Hall() {
 					<button onClick={closeCart} className="close-cart">
 						<img src={close} alt="Fechar carrinho" />
 					</button><CartArea className="cart-area-portrait" content={cartContent} plus={addUnit} minus={removeUnit} openPopupCancel={() => setShowPopupCancel(true)} sendOrder={sendOrder} />
-					</div>) : ""}
+					</div>) : ''}
 
 				{showPopup ? (
 					<Popup

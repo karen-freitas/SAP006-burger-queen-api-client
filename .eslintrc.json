@@ -22,9 +22,8 @@
   },
   "plugins": ["react", "jest", "prettier"],
   "rules": {
-    "linebreak-style": 0,
+    "linebreak-style": ["error", "windows"],
     "prefer-destructuring": 0,
-   // "react/prop-types": 0,
     "import/extensions": 0,
     "import/prefer-default-export": 0,
     "import/no-unresolved": [2, { "caseSensitive": false }],
@@ -48,5 +47,7 @@
         }
       }
     ]
+    // "quotes": ["error", "single"]
+  
   }
 }

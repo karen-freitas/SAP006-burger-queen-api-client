@@ -39,7 +39,8 @@ chooseBurger, chooseFlavor, chooseComplement, complementChecked
 				/>
 			</div>
 
-			<ButtonRadio className="radio-menu"
+			<ButtonRadio
+				className="radio-menu"
 				className2=" switch-field switch-field-menu"
 				name="flavor"
 				firstInputValue="carne"
