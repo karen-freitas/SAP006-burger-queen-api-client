@@ -46,8 +46,8 @@
           "minProperties": 3
         }
       }
-    ],
-    "quotes": ["error", "single"]
+    ]
+    // "quotes": ["error", "single"]
   
   }
 }
