@@ -44,7 +44,7 @@ const totalPrice = arrayPrices.reduce((total, price) => total+price , 0)
 			<div className="added-items-container">
 			{/* eslint-disable-next-line */}
 			{content.map(product=>
-             < CartItem name={product.name} price={product.price} qty={product.quantity} complement={product.complement} flavor={product.flavor} priceComplement={product.priceComplement} plus={plus} minus={minus}/>)}
+             < CartItem key={Math.random()} name={product.name} price={product.price} qty={product.quantity} complement={product.complement} flavor={product.flavor} priceComplement={product.priceComplement} plus={plus} minus={minus}/>)}
 			</div>
 
 
