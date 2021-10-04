@@ -73,7 +73,7 @@ atualizar a lista de pedidos e o total).
 ---
 
 <div align="center" style="display: flex">
-  <img alt="logo" height="200" width="200" src="./src/img/logo.png">
+  <img alt="logo" height="200" width="200" src="./public/logo-black.png">
 </div>
 
 <div align='center'>
