@@ -4,10 +4,10 @@ import { isAuthenticated, role } from './auth'
 
 
 const path = () => {
-    if (role() === "hall") {
-        return "/salao"
+    if (role() === 'hall') {
+        return '/salao'
     }
-     return "/cozinha" 
+     return '/cozinha' 
            
 }
 

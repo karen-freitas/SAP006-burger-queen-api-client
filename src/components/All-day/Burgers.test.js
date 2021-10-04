@@ -5,16 +5,16 @@ import Burgers from './Burgers';
 describe('Tests for Burgers component', () => {
 	it('should render products information', () => {
 		render(<Burgers/>);
-    const simple = screen.getByText("Simples")
-    const simplePrice = screen.getByText("R$ 10,00")
-    const double = screen.getByText("Duplo")
-    const doublePrice = screen.getByText("R$ 15,00")
-    const meat = screen.getByText("Carne")
-    const chicken = screen.getByText("Frango")
-    const veggie = screen.getByText("Vegetariano")
-    const cheese = screen.getByText("Queijo")
-    const egg = screen.getByText("Ovo")
-    const noExtra= screen.getByText("Sem extra")
+    const simple = screen.getByText('Simples')
+    const simplePrice = screen.getByText('R$ 10,00')
+    const double = screen.getByText('Duplo')
+    const doublePrice = screen.getByText('R$ 15,00')
+    const meat = screen.getByText('Carne')
+    const chicken = screen.getByText('Frango')
+    const veggie = screen.getByText('Vegetariano')
+    const cheese = screen.getByText('Queijo')
+    const egg = screen.getByText('Ovo')
+    const noExtra= screen.getByText('Sem extra')
 
     expect(simple).toBeInTheDocument()
     expect(double).toBeInTheDocument()

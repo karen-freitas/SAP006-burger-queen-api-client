@@ -102,7 +102,7 @@ const Register = () => {
 					setLoading(false);
 					setErrors({
 						...errors,
-						fail: `Ocorreu um erro, tente novamente.`,
+						fail: 'Ocorreu um erro, tente novamente.',
 					});
 				});
 		}

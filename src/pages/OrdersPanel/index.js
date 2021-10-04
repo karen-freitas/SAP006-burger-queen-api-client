@@ -15,7 +15,7 @@ export default function OrdersPanel() {
 	const location = useLocation();
 
 	useEffect(() => {
-		if(location.pathname==="/salao-pedidos"){
+		if(location.pathname==='/salao-pedidos'){
 			setClassBtn('goback')
 		}else{
 			setClassBtn('btn-hidden')
@@ -53,23 +53,23 @@ export default function OrdersPanel() {
 	setTimeout(updateOrders,180000)
 
   const [navClass, setNavClass] = useState({
-    pending:"selected",
-    loading:"",
-    done:"",
-    delivered:"",
-    all:"",
+    pending:'selected',
+    loading:'',
+    done:'',
+    delivered:'',
+    all:'',
   })
 
   const lastStatus =  localStorage.getItem('lastOrderStatus');
-  const [status, setStatus] = useState("pending")
-	const[visibilityBtn, setVisibilityBtn]= useState("btn-invisible")
+  const [status, setStatus] = useState('pending')
+	const[visibilityBtn, setVisibilityBtn]= useState('btn-invisible')
 
   useEffect(() => {
 		if(lastStatus){
-			setNavClass({[lastStatus]:"selected"})
-			if (lastStatus==="all"){
+			setNavClass({[lastStatus]:'selected'})
+			if (lastStatus==='all'){
 				setStatus(false)
-				setVisibilityBtn("btn-visible")
+				setVisibilityBtn('btn-visible')
 			}else{
 				setStatus(lastStatus)
 			}
@@ -77,10 +77,10 @@ export default function OrdersPanel() {
   }, [lastStatus])
 
   const navOrders = (chosenStatus) =>{
-		if (chosenStatus==="all"){
+		if (chosenStatus==='all'){
 			setStatus(false)
-			setVisibilityBtn("btn-visible")
-			localStorage.setItem('lastOrderStatus', "all");
+			setVisibilityBtn('btn-visible')
+			localStorage.setItem('lastOrderStatus', 'all');
 
 		}else{
 			setStatus(chosenStatus)
@@ -94,26 +94,26 @@ export default function OrdersPanel() {
 			<Header classBtn={classBtn}/>
 			<nav>
 				<ul className="menu-types">
-					<li className={navClass.pending} onClick={()=>{ updateOrders(); setNavClass({pending:"selected"}); navOrders("pending")}}>
+					<li className={navClass.pending} onClick={()=>{ updateOrders(); setNavClass({pending:'selected'}); navOrders('pending')}}>
 						{' '}
 						Em espera{' '}
 					</li>
-					<li className={navClass.loading} onClick={()=>{updateOrders(); setNavClass({loading:"selected"}); navOrders("loading")}}>
+					<li className={navClass.loading} onClick={()=>{updateOrders(); setNavClass({loading:'selected'}); navOrders('loading')}}>
 						{' '}
 						Iniciados{' '}
 					</li>
 
-					<li className={navClass.done} onClick={()=>{updateOrders(); setNavClass({done:"selected"}); navOrders("done")}}>
+					<li className={navClass.done} onClick={()=>{updateOrders(); setNavClass({done:'selected'}); navOrders('done')}}>
 						{' '}
 						Prontos{' '}
 					</li>
 
-          <li className={navClass.delivered} onClick={()=>{updateOrders(); setNavClass({delivered:"selected"}); navOrders("delivered")}}>
+          <li className={navClass.delivered} onClick={()=>{updateOrders(); setNavClass({delivered:'selected'}); navOrders('delivered')}}>
 						{' '}
 						Entregues{' '}
 					</li>
 
-					<li className={navClass.all} onClick={()=>{updateOrders(); setNavClass({all:"selected"}); navOrders("all")}}>
+					<li className={navClass.all} onClick={()=>{updateOrders(); setNavClass({all:'selected'}); navOrders('all')}}>
 						{' '}
 						Histórico{' '}
 					</li>
