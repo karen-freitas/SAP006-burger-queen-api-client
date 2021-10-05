@@ -191,6 +191,12 @@ Durante o desenvolvimento do projeto, foram realizados testes de usabilidade com
 
 ```
 
+## Performance, Progressive Web App, Accessibility e Best Practices do Lighthouse
+A aplicação superou a meta de 80% de pontuação do [Lighthouse](https://web.dev/) e o relatório completo pode ser visto [aqui](https://lighthouse-dot-webdotdevsite.appspot.com//lh/html?url=https%3A%2F%2Fdivino-burger.vercel.app%2F#performance).
+
+
+
+
 ## ✔️ Resultados
 
 * #### Tablet
