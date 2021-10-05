@@ -11,8 +11,9 @@
 5. [Testes de Usabilidade](#busts_in_silhouette-testes-de-usabilidade)
 6. [Tecnologias utilizadas](#robot-tecnologias-utilizadas)
 7. [Estrutura dos Principais Arquivos](#file_folder-estrutura-dos-principais-arquivos)
-8. [Resultados](#%EF%B8%8F-resultados)
-9. [Sobre as desenvolvedoras](#woman_technologist-sobre-as-desenvolvedoras)
+8. [Performance, Progressive Web App, Accessibility e Best Practices do Lighthouse](#bar_chart-performance-progressive-web-app-accessibility-e-best-practices-do-lighthouse)
+9. [Resultados](#%EF%B8%8F-resultados)
+10. [Sobre as desenvolvedoras](#woman_technologist-sobre-as-desenvolvedoras)
 
 ---
 ## :dart: Definição do Produto
@@ -191,11 +192,14 @@ Durante o desenvolvimento do projeto, foram realizados testes de usabilidade com
 
 ```
 
-## Performance, Progressive Web App, Accessibility e Best Practices do Lighthouse
+## :bar_chart: Performance, Progressive Web App, Accessibility e Best Practices do Lighthouse
 A aplicação superou a meta de 80% de pontuação do [Lighthouse](https://web.dev/) e o relatório completo pode ser visto [aqui](https://lighthouse-dot-webdotdevsite.appspot.com//lh/html?url=https%3A%2F%2Fdivino-burger.vercel.app%2F#performance).
 
+<div align="center" >
+  <img alt="light-house-perfomance" src="./src/img/light-house-perfomance.png">
+</div>
 
-
+---
 
 ## ✔️ Resultados
 
