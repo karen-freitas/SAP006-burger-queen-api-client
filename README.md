@@ -166,7 +166,6 @@ Durante o desenvolvimento do projeto, foram realizados testes de usabilidade com
 |   |   ├── 📁ListAllOrders
 |   |   ├── 📁Loader
 |   |   ├── 📁NotFound
-|   |   ├── 📁Orders
 |   |   ├── 📁Popup
 |   |   ├── 📁PopupCancel
 |   |   └── 📁ProductArea
