@@ -7,9 +7,9 @@
 1. [Definição do Produto](#dart-definição-do-produto)
 2. [Histórias de Usuários](#pencil2-histórias-de-usuários)
 3. [Protótipos](#art-protótipos)
-4. [Como usar?](#gear-como-usar)
+4. [Como Utilizar](#gear-como-utilizar)
 5. [Testes de Usabilidade](#busts_in_silhouette-testes-de-usabilidade)
-6. [Tecnologias utilizadas](#robot-tecnologias-utilizadas)
+6. [Tecnologias Utilizadas](#robot-tecnologias-utilizadas)
 7. [Estrutura dos Principais Arquivos](#file_folder-estrutura-dos-principais-arquivos)
 8. [Performance, Progressive Web App, Accessibility e Best Practices do Lighthouse](#bar_chart-performance-progressive-web-app-accessibility-e-best-practices-do-lighthouse)
 9. [Resultados](#%EF%B8%8F-resultados)
@@ -109,7 +109,7 @@ atualizar a lista de pedidos e o total).
 </div>
 
 ---
-## :gear: Como usar?
+## :gear: Como Utilizar
 
 - A tela inicial da aplicação traz a **Página de Login** que apresenta ao usário as opções de fazer o login com email e senha já cadastrados e entrar na plataforma do Divino Burger ou prosseguir para a Página de Cadastro;
 - Na **Página de Cadastro**, o funcionário pode cadastrar-se inserindo seus dados de Nome, E-mail, Senha e Setor de Trabalho;
