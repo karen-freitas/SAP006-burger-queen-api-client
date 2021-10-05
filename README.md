@@ -79,7 +79,7 @@ atualizar a lista de pedidos e o total).
 
 <div align='center'>
  
-  <h4> Você pode acessar a aplicação e utilizar um dos logins de teste abaixo:</h4>
+  <h4> Você pode acessar a aplicação utilizando um dos logins de teste abaixo:</h4>
 
 
 | #                     	|             Salão            	|           Cozinha           	|
